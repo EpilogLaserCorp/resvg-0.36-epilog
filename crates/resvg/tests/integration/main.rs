@@ -24,13 +24,15 @@ pub fn render(name: &str) -> usize {
     let svg_path = format!("tests/{}.svg", name);
     let png_path = format!("tests/{}.png", name);
 
-    let mut opt = usvg::Options::default();
-    opt.resources_dir = Some(
-        std::path::PathBuf::from(&svg_path)
-            .parent()
-            .unwrap()
-            .to_owned(),
-    );
+    let opt = usvg::Options {
+        resources_dir: Some(
+            std::path::PathBuf::from(&svg_path)
+                .parent()
+                .unwrap()
+                .to_owned(),
+        ),
+        ..Default::default()
+    };
 
     let tree = {
         let svg_data = std::fs::read(&svg_path).unwrap();
@@ -44,8 +46,8 @@ pub fn render(name: &str) -> usize {
     let size = rtree.size.to_int_size().scale_to_width(IMAGE_SIZE).unwrap();
     let mut pixmap = tiny_skia::Pixmap::new(size.width(), size.height()).unwrap();
     let render_ts = tiny_skia::Transform::from_scale(
-        size.width() as f32 / tree.size.width() as f32,
-        size.height() as f32 / tree.size.height() as f32,
+        size.width() as f32 / tree.size.width(),
+        size.height() as f32 / tree.size.height(),
     );
     rtree.render(render_ts, &mut pixmap.as_mut());
 
@@ -84,7 +86,7 @@ pub fn render_extra_with_scale(name: &str, scale: f32) -> usize {
     let opt = usvg::Options::default();
 
     let tree = {
-        let svg_data = std::fs::read(&svg_path).unwrap();
+        let svg_data = std::fs::read(svg_path).unwrap();
         usvg::Tree::from_data(&svg_data, &opt).unwrap()
     };
     let rtree = resvg::Tree::from_usvg(&tree);
@@ -197,7 +199,7 @@ fn gen_diff(name: &str, img1: &[u8], img2: &[u8]) -> Result<(), png::EncodingErr
 
     let path = std::path::PathBuf::from(format!("tests/{}-diff.png", name));
     let file = std::fs::File::create(path)?;
-    let ref mut w = std::io::BufWriter::new(file);
+    let w = &mut std::io::BufWriter::new(file);
 
     let mut encoder = png::Encoder::new(w, IMAGE_SIZE, IMAGE_SIZE);
     encoder.set_color(png::ColorType::Rgb);

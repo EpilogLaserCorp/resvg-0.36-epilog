@@ -1,0 +1,15 @@
+#!/bin/bash
+set -e
+
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+pushd  "$SCRIPT_DIR/../"
+
+# Run all checks.
+echo "Running all commit checks..."
+sh ./scripts/commit-check-formatting.sh
+sh ./scripts/commit-build.sh
+sh ./scripts/commit-test.sh
+
+popd
+
+exit 0

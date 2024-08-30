@@ -19,12 +19,13 @@ fn main() {
         1.0
     };
 
-    let mut opt = usvg::Options::default();
-    // Get file's absolute directory.
-    opt.resources_dir = std::fs::canonicalize(&args[1])
-        .ok()
-        .and_then(|p| p.parent().map(|p| p.to_path_buf()));
-    // let fit_to = resvg::FitTo::Zoom(zoom);
+    let opt = usvg::Options {
+        // Get file's absolute directory.
+        resources_dir: std::fs::canonicalize(&args[1])
+            .ok()
+            .and_then(|p| p.parent().map(|p| p.to_path_buf())),
+        ..Default::default()
+    };
 
     let mut fontdb = fontdb::Database::new();
     fontdb.load_system_fonts();
