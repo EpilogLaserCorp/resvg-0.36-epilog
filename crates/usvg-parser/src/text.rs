@@ -8,6 +8,7 @@ use kurbo::{ParamCurve, ParamCurveArclen};
 use svgtypes::{Length, LengthUnit};
 use usvg_tree::*;
 
+use crate::clippath::resolve_transform;
 use crate::svgtree::{AId, EId, FromValue, SvgNode};
 use crate::{converter, style};
 
@@ -356,7 +357,12 @@ fn resolve_text_flow(node: SvgNode, state: &converter::State) -> Option<TextFlow
         node.resolve_length(AId::StartOffset, state, 0.0)
     };
 
-    Some(TextFlow::Path(Rc::new(TextPath { start_offset, path })))
+    Some(TextFlow::Path(Rc::new(TextPath {
+        id: linked_node.element_id().to_owned(),
+        transform: resolve_transform(node)?,
+        start_offset,
+        path,
+    })))
 }
 
 fn convert_font(node: SvgNode, state: &converter::State) -> Font {

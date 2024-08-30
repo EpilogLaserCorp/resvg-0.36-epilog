@@ -96,10 +96,15 @@ fn convert_percent(length: Length, base: f32) -> f32 {
 pub(crate) fn resolve_font_size(node: SvgNode, state: &converter::State) -> f32 {
     let nodes: Vec<_> = node.ancestors().collect();
     let mut font_size = state.opt.font_size;
+
+    // Convert font_size from point to pixels which was not done in the original resvg repo. If not
+    // done, this causes issues with named font sizes like "smaller".
+    let dpi = state.opt.dpi;
+    font_size = font_size * dpi / 72.0;
+
     for n in nodes.iter().rev().skip(1) {
         // skip Root
         if let Some(length) = n.attribute::<Length>(AId::FontSize) {
-            let dpi = state.opt.dpi;
             let n = length.number as f32;
             font_size = match length.unit {
                 Unit::None | Unit::Px => n,
