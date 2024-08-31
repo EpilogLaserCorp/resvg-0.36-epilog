@@ -6,7 +6,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 This changelog also contains important changes in dependencies.
 
-## [Unreleased]
+## [Unreleased] - 2024-08-30
+### Added
+- Text node serialization.
 
 ## [0.36.0] - 2023-10-01
 ### Added
