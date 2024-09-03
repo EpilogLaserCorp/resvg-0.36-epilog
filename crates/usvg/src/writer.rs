@@ -7,7 +7,7 @@ use std::io::Write;
 use std::rc::Rc;
 
 use crate::TreeWriting;
-use usvg_parser::{AId, EId};
+use usvg_parser::{AId, EId, Options};
 use usvg_tree::*;
 use xmlwriter::XmlWriter;
 
@@ -1070,6 +1070,140 @@ fn write_path(
     });
 
     xml.end_element();
+}
+
+#[allow(unused)] // TODO Remove this in a future commit.
+fn write_tspan(
+    chunk: &TextChunk,
+    span: &TextSpan,
+    is_clip_path: bool,
+    opt: &XmlOptions,
+    xml: &mut XmlWriter,
+) {
+    let text = &chunk.text[span.start..span.end];
+
+    xml.start_svg_element(EId::Tspan);
+
+    // Get the defaults so we can compare them.
+    let default_options = Options::default();
+
+    // Write painting attributes.
+    write_fill(&span.fill, is_clip_path, opt, xml);
+    write_stroke(&span.stroke, opt, xml);
+    xml.write_visibility(span.visibility);
+    if span.paint_order == PaintOrder::StrokeAndFill {
+        xml.write_svg_attribute(AId::PaintOrder, "stroke");
+    }
+    match span.alignment_baseline {
+        AlignmentBaseline::Auto => {}
+        AlignmentBaseline::Baseline => xml.write_svg_attribute(AId::AlignmentBaseline, "baseline"),
+        AlignmentBaseline::BeforeEdge => {
+            xml.write_svg_attribute(AId::AlignmentBaseline, "before-edge")
+        }
+        AlignmentBaseline::TextBeforeEdge => {
+            xml.write_svg_attribute(AId::AlignmentBaseline, "text-before-edge")
+        }
+        AlignmentBaseline::Middle => xml.write_svg_attribute(AId::AlignmentBaseline, "middle"),
+        AlignmentBaseline::Central => xml.write_svg_attribute(AId::AlignmentBaseline, "central"),
+        AlignmentBaseline::AfterEdge => {
+            xml.write_svg_attribute(AId::AlignmentBaseline, "after-edge")
+        }
+        AlignmentBaseline::TextAfterEdge => {
+            xml.write_svg_attribute(AId::AlignmentBaseline, "text-after-edge")
+        }
+        AlignmentBaseline::Ideographic => {
+            xml.write_svg_attribute(AId::AlignmentBaseline, "ideographic")
+        }
+        AlignmentBaseline::Alphabetic => {
+            xml.write_svg_attribute(AId::AlignmentBaseline, "alphabetic")
+        }
+        AlignmentBaseline::Hanging => xml.write_svg_attribute(AId::AlignmentBaseline, "hanging"),
+        AlignmentBaseline::Mathematical => {
+            xml.write_svg_attribute(AId::AlignmentBaseline, "mathematical")
+        }
+    }
+    match span.dominant_baseline {
+        DominantBaseline::Auto => {}
+        DominantBaseline::UseScript => xml.write_svg_attribute(AId::DominantBaseline, "use-script"),
+        DominantBaseline::NoChange => xml.write_svg_attribute(AId::DominantBaseline, "no-change"),
+        DominantBaseline::ResetSize => xml.write_svg_attribute(AId::DominantBaseline, "reset-size"),
+        DominantBaseline::Ideographic => {
+            xml.write_svg_attribute(AId::DominantBaseline, "ideographic")
+        }
+        DominantBaseline::Alphabetic => {
+            xml.write_svg_attribute(AId::DominantBaseline, "alphabetic")
+        }
+        DominantBaseline::Hanging => xml.write_svg_attribute(AId::DominantBaseline, "hanging"),
+        DominantBaseline::Mathematical => {
+            xml.write_svg_attribute(AId::DominantBaseline, "mathematical")
+        }
+        DominantBaseline::Central => xml.write_svg_attribute(AId::DominantBaseline, "central"),
+        DominantBaseline::Middle => xml.write_svg_attribute(AId::DominantBaseline, "middle"),
+        DominantBaseline::TextAfterEdge => {
+            xml.write_svg_attribute(AId::DominantBaseline, "text-after-edge")
+        }
+        DominantBaseline::TextBeforeEdge => {
+            xml.write_svg_attribute(AId::DominantBaseline, "text-before-edge")
+        }
+    }
+    if let Some(font_family) = span.font.families.first() {
+        // Note: Only the first font family matters since it is the most related family.
+        if *font_family != default_options.font_family {
+            xml.write_svg_attribute(AId::FontFamily, font_family);
+        }
+    }
+    if span.font_size != default_options.font_size {
+        xml.write_svg_attribute(AId::FontSize, &span.font_size.get());
+    }
+    match span.font.stretch {
+        FontStretch::UltraCondensed => xml.write_svg_attribute(AId::FontStretch, "ultra-condensed"),
+        FontStretch::ExtraCondensed => xml.write_svg_attribute(AId::FontStretch, "ultra-condensed"),
+        FontStretch::Condensed => xml.write_svg_attribute(AId::FontStretch, "condensed"),
+        FontStretch::SemiCondensed => xml.write_svg_attribute(AId::FontStretch, "semi-condensed"),
+        FontStretch::Normal => {}
+        FontStretch::SemiExpanded => xml.write_svg_attribute(AId::FontStretch, "semi-expanded"),
+        FontStretch::Expanded => xml.write_svg_attribute(AId::FontStretch, "expanded"),
+        FontStretch::ExtraExpanded => xml.write_svg_attribute(AId::FontStretch, "extra-expanded"),
+        FontStretch::UltraExpanded => xml.write_svg_attribute(AId::FontStretch, "ultra-expanded"),
+    }
+    match span.font.style {
+        FontStyle::Normal => {}
+        FontStyle::Italic => xml.write_svg_attribute(AId::FontStyle, "italic"),
+        FontStyle::Oblique => xml.write_svg_attribute(AId::FontStyle, "oblique"),
+    }
+    if span.font.weight != 400 {
+        // 400 is the default.
+        xml.write_svg_attribute(AId::FontWeight, &span.font.weight);
+    }
+    match span.length_adjust {
+        LengthAdjust::Spacing => {}
+        LengthAdjust::SpacingAndGlyphs => {
+            xml.write_svg_attribute(AId::LengthAdjust, "spacingAndGlyphs")
+        }
+    }
+    if span.letter_spacing != 0. {
+        // 0 is the default.
+        xml.write_svg_attribute(AId::LetterSpacing, &span.letter_spacing);
+    }
+    match span.paint_order {
+        PaintOrder::FillAndStroke => {}
+        PaintOrder::StrokeAndFill => xml.write_svg_attribute(AId::LengthAdjust, "stroke"),
+    }
+    if span.small_caps {
+        xml.write_svg_attribute(AId::FontVariant, "small-caps");
+    }
+    if let Some(text_length) = span.text_length {
+        xml.write_svg_attribute(AId::TextLength, &text_length);
+    }
+    if span.word_spacing != 0. {
+        // 0 is the default.
+        xml.write_svg_attribute(AId::WordSpacing, &span.word_spacing);
+    }
+
+    // Write contents.
+    xml.write_text(text);
+
+    xml.end_element(); // End tspan element.
 }
 
 fn write_fill(fill: &Option<Fill>, is_clip_path: bool, opt: &XmlOptions, xml: &mut XmlWriter) {
