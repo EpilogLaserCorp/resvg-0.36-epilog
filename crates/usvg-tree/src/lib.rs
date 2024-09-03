@@ -1035,6 +1035,13 @@ impl Tree {
     pub fn filters<F: FnMut(Rc<filter::Filter>)>(&self, mut f: F) {
         loop_over_filters(&self.root, &mut f)
     }
+
+    /// Calls a closure for each [`TextPath`] in the tree.
+    ///
+    /// Doesn't guarantee to have unique textPaths. A caller must deduplicate them manually.
+    pub fn text_paths<F: FnMut(Rc<TextPath>)>(&self, mut f: F) {
+        loop_over_text_paths(&self.root, &mut f)
+    }
 }
 
 fn has_text_nodes(root: &Node) -> bool {
@@ -1138,6 +1145,20 @@ fn loop_over_filters(root: &Node, f: &mut dyn FnMut(Rc<filter::Filter>)) {
         }
 
         node.subroots(|subroot| loop_over_filters(&subroot, f));
+    }
+}
+
+fn loop_over_text_paths(root: &Node, f: &mut dyn FnMut(Rc<TextPath>)) {
+    for node in root.descendants() {
+        if let NodeKind::Text(ref t) = *node.borrow() {
+            for chunk in &t.chunks {
+                if let TextFlow::Path(ref text_path) = chunk.text_flow {
+                    f(text_path.clone())
+                }
+            }
+        }
+
+        node.subroots(|subroot| loop_over_text_paths(&subroot, f));
     }
 }
 

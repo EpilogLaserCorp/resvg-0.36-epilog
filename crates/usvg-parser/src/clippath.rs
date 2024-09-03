@@ -67,7 +67,7 @@ pub(crate) fn convert(
     }
 }
 
-fn resolve_transform(node: SvgNode) -> Option<Transform> {
+pub(crate) fn resolve_transform(node: SvgNode) -> Option<Transform> {
     // Do not use Node::attribute::<Transform>, because it will always
     // return a valid transform.
 

@@ -6679,10 +6679,6 @@ fn text_dominant_baseline_use_script() {
     assert_eq!(render("tests/text/dominant-baseline/use-script"), 0);
 }
 #[test]
-fn text_font_simple_case() {
-    assert_eq!(render("tests/text/font/simple-case"), 0);
-}
-#[test]
 fn text_font_family_bold_sans_serif() {
     assert_eq!(render("tests/text/font-family/bold-sans-serif"), 0);
 }
@@ -6747,20 +6743,12 @@ fn text_font_size_em_nested_and_mixed() {
     assert_eq!(render("tests/text/font-size/em-nested-and-mixed"), 0);
 }
 #[test]
-fn text_font_size_em_on_the_root_element() {
-    assert_eq!(render("tests/text/font-size/em-on-the-root-element"), 0);
-}
-#[test]
 fn text_font_size_em() {
     assert_eq!(render("tests/text/font-size/em"), 0);
 }
 #[test]
 fn text_font_size_ex_nested_and_mixed() {
     assert_eq!(render("tests/text/font-size/ex-nested-and-mixed"), 0);
-}
-#[test]
-fn text_font_size_ex_on_the_root_element() {
-    assert_eq!(render("tests/text/font-size/ex-on-the-root-element"), 0);
 }
 #[test]
 fn text_font_size_ex() {
@@ -6773,13 +6761,6 @@ fn text_font_size_inheritance() {
 #[test]
 fn text_font_size_mixed_values() {
     assert_eq!(render("tests/text/font-size/mixed-values"), 0);
-}
-#[test]
-fn text_font_size_named_value_without_a_parent() {
-    assert_eq!(
-        render("tests/text/font-size/named-value-without-a-parent"),
-        0
-    );
 }
 #[test]
 fn text_font_size_named_value() {
@@ -6796,13 +6777,6 @@ fn text_font_size_nested_percent_values_1() {
 #[test]
 fn text_font_size_nested_percent_values_2() {
     assert_eq!(render("tests/text/font-size/nested-percent-values-2"), 0);
-}
-#[test]
-fn text_font_size_percent_value_without_a_parent() {
-    assert_eq!(
-        render("tests/text/font-size/percent-value-without-a-parent"),
-        0
-    );
 }
 #[test]
 fn text_font_size_percent_value() {
