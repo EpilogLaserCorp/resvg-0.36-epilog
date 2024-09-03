@@ -446,6 +446,25 @@ fn conv_filters(tree: &Tree, opt: &XmlOptions, xml: &mut XmlWriter) {
     }
 }
 
+fn conv_text_paths(tree: &Tree, opt: &XmlOptions, xml: &mut XmlWriter) {
+    let mut text_paths = Vec::new();
+    tree.text_paths(|path| {
+        if !text_paths.iter().any(|other| Rc::ptr_eq(&path, other)) {
+            text_paths.push(path);
+        }
+    });
+
+    for path in text_paths {
+        xml.start_svg_element(EId::Path);
+        xml.write_id_attribute(&path.id, opt);
+        xml.write_transform(AId::Transform, path.transform, opt);
+
+        write_path_data(&path.path, opt, xml);
+
+        xml.end_element();
+    }
+}
+
 fn conv_defs(tree: &Tree, opt: &XmlOptions, xml: &mut XmlWriter) {
     let mut paint_servers: Vec<Paint> = Vec::new();
     tree.paint_servers(|paint| {
@@ -500,6 +519,8 @@ fn conv_defs(tree: &Tree, opt: &XmlOptions, xml: &mut XmlWriter) {
             }
         }
     }
+
+    conv_text_paths(tree, opt, xml);
 
     conv_filters(tree, opt, xml);
 
@@ -669,8 +690,8 @@ fn conv_element(node: &Node, is_clip_path: bool, opt: &XmlOptions, xml: &mut Xml
 
             xml.end_element();
         }
-        NodeKind::Text(_) => {
-            log::warn!("Text must be converted into paths.");
+        NodeKind::Text(ref t) => {
+            write_text_node(t, is_clip_path, None, opt, xml);
         }
     }
 }
@@ -686,6 +707,7 @@ trait XmlWriterExt {
     fn write_transform(&mut self, id: AId, units: Transform, opt: &XmlOptions);
     fn write_visibility(&mut self, value: Visibility);
     fn write_func_iri(&mut self, aid: AId, id: &str, opt: &XmlOptions);
+    fn write_func_href(&mut self, aid: AId, id: &str, opt: &XmlOptions);
     fn write_rect_attrs(&mut self, r: NonZeroRect);
     fn write_numbers(&mut self, aid: AId, list: &[f32]);
     fn write_image_data(&mut self, kind: &ImageKind);
@@ -819,6 +841,11 @@ impl XmlWriterExt for XmlWriter {
     fn write_func_iri(&mut self, aid: AId, id: &str, opt: &XmlOptions) {
         let prefix = opt.id_prefix.as_deref().unwrap_or_default();
         self.write_attribute_fmt(aid.to_str(), format_args!("url(#{}{})", prefix, id));
+    }
+
+    fn write_func_href(&mut self, aid: AId, id: &str, opt: &XmlOptions) {
+        let prefix = opt.id_prefix.as_deref().unwrap_or_default();
+        self.write_attribute_fmt(aid.to_str(), format_args!("#{}{}", prefix, id));
     }
 
     fn write_rect_attrs(&mut self, r: NonZeroRect) {
@@ -1015,64 +1042,24 @@ fn write_path(
 
     xml.write_transform(AId::Transform, path.transform, opt);
 
-    xml.write_attribute_raw("d", |buf| {
-        use tiny_skia_path::PathSegment;
-
-        for seg in path.data.segments() {
-            match seg {
-                PathSegment::MoveTo(p) => {
-                    buf.extend_from_slice(b"M ");
-                    write_num(p.x, buf, opt.coordinates_precision);
-                    buf.push(b' ');
-                    write_num(p.y, buf, opt.coordinates_precision);
-                    buf.push(b' ');
-                }
-                PathSegment::LineTo(p) => {
-                    buf.extend_from_slice(b"L ");
-                    write_num(p.x, buf, opt.coordinates_precision);
-                    buf.push(b' ');
-                    write_num(p.y, buf, opt.coordinates_precision);
-                    buf.push(b' ');
-                }
-                PathSegment::QuadTo(p1, p) => {
-                    buf.extend_from_slice(b"Q ");
-                    write_num(p1.x, buf, opt.coordinates_precision);
-                    buf.push(b' ');
-                    write_num(p1.y, buf, opt.coordinates_precision);
-                    buf.push(b' ');
-                    write_num(p.x, buf, opt.coordinates_precision);
-                    buf.push(b' ');
-                    write_num(p.y, buf, opt.coordinates_precision);
-                    buf.push(b' ');
-                }
-                PathSegment::CubicTo(p1, p2, p) => {
-                    buf.extend_from_slice(b"C ");
-                    write_num(p1.x, buf, opt.coordinates_precision);
-                    buf.push(b' ');
-                    write_num(p1.y, buf, opt.coordinates_precision);
-                    buf.push(b' ');
-                    write_num(p2.x, buf, opt.coordinates_precision);
-                    buf.push(b' ');
-                    write_num(p2.y, buf, opt.coordinates_precision);
-                    buf.push(b' ');
-                    write_num(p.x, buf, opt.coordinates_precision);
-                    buf.push(b' ');
-                    write_num(p.y, buf, opt.coordinates_precision);
-                    buf.push(b' ');
-                }
-                PathSegment::Close => {
-                    buf.extend_from_slice(b"Z ");
-                }
-            }
-        }
-
-        buf.pop();
-    });
+    write_path_data(&path.data, opt, xml);
 
     xml.end_element();
 }
 
-#[allow(unused)] // TODO Remove this in a future commit.
+fn write_text_node(
+    text: &Text,
+    is_clip_path: bool,
+    clip_path: Option<&str>,
+    opt: &XmlOptions,
+    xml: &mut XmlWriter,
+) {
+    // Write chunks.
+    for chunk in &text.chunks {
+        write_text_chunk(text, chunk, is_clip_path, clip_path, opt, xml);
+    }
+}
+
 fn write_tspan(
     chunk: &TextChunk,
     span: &TextSpan,
@@ -1204,6 +1191,124 @@ fn write_tspan(
     xml.write_text(text);
 
     xml.end_element(); // End tspan element.
+}
+
+fn write_all_tspans(chunk: &TextChunk, is_clip_path: bool, opt: &XmlOptions, xml: &mut XmlWriter) {
+    for span in &chunk.spans {
+        write_tspan(chunk, span, is_clip_path, opt, xml);
+    }
+}
+
+fn write_text_chunk(
+    text: &Text,
+    chunk: &TextChunk,
+    is_clip_path: bool,
+    clip_path: Option<&str>,
+    opt: &XmlOptions,
+    xml: &mut XmlWriter,
+) {
+    xml.start_svg_element(EId::Text);
+    if !text.id.is_empty() {
+        xml.write_id_attribute(&text.id, opt);
+    }
+
+    // Write position attributes for the chunk itself.
+    if let Some(x) = chunk.x {
+        xml.write_svg_attribute(AId::X, &x);
+    }
+    if let Some(y) = chunk.y {
+        xml.write_svg_attribute(AId::Y, &y);
+    }
+
+    match text.rendering_mode {
+        TextRendering::OptimizeSpeed => {
+            xml.write_svg_attribute(AId::TextRendering, "optimizeSpeed");
+        }
+        TextRendering::OptimizeLegibility => {}
+        TextRendering::GeometricPrecision => {
+            xml.write_svg_attribute(AId::TextRendering, "geometricPrecision")
+        }
+    }
+
+    if let Some(id) = clip_path {
+        xml.write_func_iri(AId::ClipPath, id, opt);
+    }
+
+    xml.write_transform(AId::Transform, text.transform, opt);
+
+    if text.rotate.iter().any(|r| *r != 0.) {
+        xml.write_numbers(AId::Rotate, &text.rotate);
+    }
+
+    // Write all tspans.
+    match chunk.text_flow {
+        TextFlow::Linear => write_all_tspans(chunk, is_clip_path, opt, xml),
+        TextFlow::Path(ref tp) => {
+            // Wrap all spans inside of a textPath element
+            xml.start_svg_element(EId::TextPath);
+            xml.write_func_href(AId::Href, &tp.id, opt);
+            write_all_tspans(chunk, is_clip_path, opt, xml);
+            xml.end_element(); // End textPath element.
+        }
+    }
+
+    xml.end_element(); // End text element.
+}
+
+fn write_path_data(path: &tiny_skia_path::Path, opt: &XmlOptions, xml: &mut XmlWriter) {
+    xml.write_attribute_raw("d", |buf| {
+        use tiny_skia_path::PathSegment;
+
+        for seg in path.segments() {
+            match seg {
+                PathSegment::MoveTo(p) => {
+                    buf.extend_from_slice(b"M ");
+                    write_num(p.x, buf, opt.coordinates_precision);
+                    buf.push(b' ');
+                    write_num(p.y, buf, opt.coordinates_precision);
+                    buf.push(b' ');
+                }
+                PathSegment::LineTo(p) => {
+                    buf.extend_from_slice(b"L ");
+                    write_num(p.x, buf, opt.coordinates_precision);
+                    buf.push(b' ');
+                    write_num(p.y, buf, opt.coordinates_precision);
+                    buf.push(b' ');
+                }
+                PathSegment::QuadTo(p1, p) => {
+                    buf.extend_from_slice(b"Q ");
+                    write_num(p1.x, buf, opt.coordinates_precision);
+                    buf.push(b' ');
+                    write_num(p1.y, buf, opt.coordinates_precision);
+                    buf.push(b' ');
+                    write_num(p.x, buf, opt.coordinates_precision);
+                    buf.push(b' ');
+                    write_num(p.y, buf, opt.coordinates_precision);
+                    buf.push(b' ');
+                }
+                PathSegment::CubicTo(p1, p2, p) => {
+                    buf.extend_from_slice(b"C ");
+                    write_num(p1.x, buf, opt.coordinates_precision);
+                    buf.push(b' ');
+                    write_num(p1.y, buf, opt.coordinates_precision);
+                    buf.push(b' ');
+                    write_num(p2.x, buf, opt.coordinates_precision);
+                    buf.push(b' ');
+                    write_num(p2.y, buf, opt.coordinates_precision);
+                    buf.push(b' ');
+                    write_num(p.x, buf, opt.coordinates_precision);
+                    buf.push(b' ');
+                    write_num(p.y, buf, opt.coordinates_precision);
+                    buf.push(b' ');
+                }
+                PathSegment::Close => {
+                    buf.extend_from_slice(b"Z ");
+                }
+            }
+        }
+
+        buf.pop();
+    });
 }
 
 fn write_fill(fill: &Option<Fill>, is_clip_path: bool, opt: &XmlOptions, xml: &mut XmlWriter) {
