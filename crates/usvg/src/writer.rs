@@ -1133,12 +1133,20 @@ fn write_tspan(
             xml.write_svg_attribute(AId::DominantBaseline, "text-before-edge")
         }
     }
-    if let Some(font_family) = span.font.families.first() {
-        // Note: Only the first font family matters since it is the most related family.
-        if *font_family != default_options.font_family {
-            xml.write_svg_attribute(AId::FontFamily, font_family);
-        }
-    }
+
+    // Write all font families (comma separated).
+    xml.write_svg_attribute(
+        AId::FontFamily,
+        &span
+            .font
+            .families
+            .iter()
+            .filter(|&family| family != &default_options.font_family)
+            .cloned()
+            .collect::<Vec<_>>()
+            .join(","),
+    );
+
     if span.font_size != default_options.font_size {
         xml.write_svg_attribute(AId::FontSize, &span.font_size.get());
     }
