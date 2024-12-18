@@ -8,8 +8,8 @@ use kurbo::{ParamCurve, ParamCurveArclen};
 use svgtypes::{Length, LengthUnit};
 use usvg_tree::*;
 
-use crate::font::{FontFamily, parse_font_families};
 use crate::clippath::resolve_transform;
+use crate::font::{parse_font_families, FontFamily};
 use crate::svgtree::{AId, EId, FromValue, SvgNode};
 use crate::{converter, style};
 
@@ -371,20 +371,18 @@ fn convert_font(node: SvgNode, state: &converter::State) -> Font {
     let stretch = conv_font_stretch(node);
     let weight = resolve_font_weight(node);
 
-    let font_families = if let Some(n) = node.ancestors().find(|n| n.has_attribute(AId::FontFamily)) {
+    let font_families = if let Some(n) = node.ancestors().find(|n| n.has_attribute(AId::FontFamily))
+    {
         n.attribute(AId::FontFamily).unwrap_or("")
     } else {
         ""
     };
 
-    let mut families = parse_font_families(font_families)
-    .ok()
-    .unwrap_or_default();
+    let mut families = parse_font_families(font_families).ok().unwrap_or_default();
 
     if families.is_empty() {
         families.push(FontFamily::Named(state.opt.font_family.clone()))
     }
-    
     let families = families.into_iter().map(|f| f.to_string()).collect();
 
     Font {

@@ -1,6 +1,10 @@
 // Copyright 2018 the SVG Types Authors
 // SPDX-License-Identifier: Apache-2.0 OR MIT
 
+// cmccall: Copied in from svgtypes repo b1cd4010f5e42f970932dbf01acc8f53547f64f6
+// Brought this in so that I could use parse_font_families. If possible, we may
+// want to consider updating the svgtypes crate dependency to 15.2+.
+
 use std::str::FromStr;
 
 use crate::{ByteExt, Error, Stream};

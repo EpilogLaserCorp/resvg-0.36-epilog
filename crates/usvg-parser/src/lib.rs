@@ -24,30 +24,30 @@
 mod clippath;
 mod converter;
 mod filter;
+mod font;
 mod image;
 mod marker;
 mod mask;
+mod number;
 mod options;
 mod paint_server;
 mod shapes;
+mod stream;
 mod style;
 mod svgtree;
 mod switch;
 mod text;
 mod units;
 mod use_node;
-mod font;
-mod stream;
-mod number;
 
 use crate::stream::{ByteExt, Stream};
 
+pub use crate::font::*;
+pub use crate::number::*;
 pub use crate::options::*;
 pub use image::ImageHrefResolver;
 pub use roxmltree;
 pub use svgtree::{AId, EId};
-pub use crate::font::*;
-pub use crate::number::*;
 
 /// List of all errors.
 #[derive(Debug, PartialEq, Eq)]
@@ -67,7 +67,7 @@ pub enum Error {
     ///
     /// Also occurs if width, height and viewBox are not set.
     InvalidSize,
-        /// An input data ended earlier than expected.
+    /// An input data ended earlier than expected.
     ///
     /// Should only appear on invalid input data.
     /// Errors in a valid XML should be handled by errors below.
