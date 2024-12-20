@@ -1,10 +1,10 @@
-name: epilog-print-api-build-test
+name: resvg-0_36-epilog-build-test
 on: [ pull_request, workflow_dispatch ]
 jobs:
-    build-and-test-print-api:
+    build-and-test-resvg-0_36-epilog:
         runs-on: [ self-hosted, linux ]
         container:
-            image: ghcr.io/epiloglasercorp/epilog-rust-builder:1.74
+            image: ghcr.io/epiloglasercorp/epilog-rust-builder:1.83
         steps:
             - uses: actions/checkout@v3
               with:

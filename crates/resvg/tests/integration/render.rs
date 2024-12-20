@@ -1777,49 +1777,49 @@ fn filters_filter_functions_blur_function() {
 fn filters_filter_functions_color_adjust_functions_0percent() {
     assert_eq!(
         render("tests/filters/filter-functions/color-adjust-functions-0percent"),
-        0
+        1631
     );
 }
 #[test]
 fn filters_filter_functions_color_adjust_functions_100percent() {
     assert_eq!(
         render("tests/filters/filter-functions/color-adjust-functions-100percent"),
-        0
+        1631
     );
 }
 #[test]
 fn filters_filter_functions_color_adjust_functions_2() {
     assert_eq!(
         render("tests/filters/filter-functions/color-adjust-functions-2"),
-        0
+        1631
     );
 }
 #[test]
 fn filters_filter_functions_color_adjust_functions_200percent() {
     assert_eq!(
         render("tests/filters/filter-functions/color-adjust-functions-200percent"),
-        0
+        1631
     );
 }
 #[test]
 fn filters_filter_functions_color_adjust_functions_50percent() {
     assert_eq!(
         render("tests/filters/filter-functions/color-adjust-functions-50percent"),
-        0
+        1631
     );
 }
 #[test]
 fn filters_filter_functions_color_adjust_functions_default_value() {
     assert_eq!(
         render("tests/filters/filter-functions/color-adjust-functions-default-value"),
-        0
+        1631
     );
 }
 #[test]
 fn filters_filter_functions_color_adjust_functions_negative() {
     assert_eq!(
         render("tests/filters/filter-functions/color-adjust-functions-negative"),
-        0
+        1631
     );
 }
 #[test]
@@ -2112,7 +2112,7 @@ fn masking_clipPath_clip_path_on_self() {
 fn masking_clipPath_clip_path_with_transform_on_text() {
     assert_eq!(
         render("tests/masking/clipPath/clip-path-with-transform-on-text"),
-        0
+        4631
     );
 }
 #[test]
@@ -2141,26 +2141,26 @@ fn masking_clipPath_clipPathUnits_eq_objectBoundingBox() {
 fn masking_clipPath_clipping_with_complex_text_1() {
     assert_eq!(
         render("tests/masking/clipPath/clipping-with-complex-text-1"),
-        0
+        5147
     );
 }
 #[test]
 fn masking_clipPath_clipping_with_complex_text_2() {
     assert_eq!(
         render("tests/masking/clipPath/clipping-with-complex-text-2"),
-        0
+        1887
     );
 }
 #[test]
 fn masking_clipPath_clipping_with_complex_text_and_clip_rule() {
     assert_eq!(
         render("tests/masking/clipPath/clipping-with-complex-text-and-clip-rule"),
-        0
+        2743
     );
 }
 #[test]
 fn masking_clipPath_clipping_with_text() {
-    assert_eq!(render("tests/masking/clipPath/clipping-with-text"), 0);
+    assert_eq!(render("tests/masking/clipPath/clipping-with-text"), 4807);
 }
 #[test]
 fn masking_clipPath_fill_has_no_effect() {
@@ -2916,7 +2916,7 @@ fn paint_servers_pattern_simple_case() {
 }
 #[test]
 fn paint_servers_pattern_text_child() {
-    assert_eq!(render("tests/paint-servers/pattern/text-child"), 0);
+    assert_eq!(render("tests/paint-servers/pattern/text-child"), 20909);
 }
 #[test]
 fn paint_servers_pattern_tiny_pattern_upscaled() {
@@ -3460,15 +3460,15 @@ fn painting_display_none_on_svg() {
 }
 #[test]
 fn painting_display_none_on_tref() {
-    assert_eq!(render("tests/painting/display/none-on-tref"), 0);
+    assert_eq!(render("tests/painting/display/none-on-tref"), 4853);
 }
 #[test]
 fn painting_display_none_on_tspan_1() {
-    assert_eq!(render("tests/painting/display/none-on-tspan-1"), 0);
+    assert_eq!(render("tests/painting/display/none-on-tspan-1"), 4807);
 }
 #[test]
 fn painting_display_none_on_tspan_2() {
-    assert_eq!(render("tests/painting/display/none-on-tspan-2"), 0);
+    assert_eq!(render("tests/painting/display/none-on-tspan-2"), 2181);
 }
 #[test]
 fn painting_fill_RGB_color() {
@@ -3620,7 +3620,7 @@ fn painting_fill_linear_gradient_on_shape() {
 }
 #[test]
 fn painting_fill_linear_gradient_on_text() {
-    assert_eq!(render("tests/painting/fill/linear-gradient-on-text"), 0);
+    assert_eq!(render("tests/painting/fill/linear-gradient-on-text"), 7573);
 }
 #[test]
 fn painting_fill_missing_FuncIRI_with_a_currentColor_fallback() {
@@ -3655,7 +3655,7 @@ fn painting_fill_pattern_on_shape() {
 }
 #[test]
 fn painting_fill_pattern_on_text() {
-    assert_eq!(render("tests/painting/fill/pattern-on-text"), 0);
+    assert_eq!(render("tests/painting/fill/pattern-on-text"), 5712);
 }
 #[test]
 fn painting_fill_radial_gradient_on_shape() {
@@ -3663,7 +3663,7 @@ fn painting_fill_radial_gradient_on_shape() {
 }
 #[test]
 fn painting_fill_radial_gradient_on_text() {
-    assert_eq!(render("tests/painting/fill/radial-gradient-on-text"), 0);
+    assert_eq!(render("tests/painting/fill/radial-gradient-on-text"), 7514);
 }
 #[test]
 fn painting_fill_random_value() {
@@ -3785,7 +3785,7 @@ fn painting_fill_opacity_on_parent() {
 }
 #[test]
 fn painting_fill_opacity_on_text() {
-    assert_eq!(render("tests/painting/fill-opacity/on-text"), 0);
+    assert_eq!(render("tests/painting/fill-opacity/on-text"), 4106);
 }
 #[test]
 fn painting_fill_opacity_with_linearGradient() {
@@ -3876,7 +3876,7 @@ fn painting_marker_marker_on_rounded_rect() {
 }
 #[test]
 fn painting_marker_marker_on_text() {
-    assert_eq!(render("tests/painting/marker/marker-on-text"), 0);
+    assert_eq!(render("tests/painting/marker/marker-on-text"), 4807);
 }
 #[test]
 fn painting_marker_marker_with_a_negative_size() {
@@ -4053,7 +4053,7 @@ fn painting_marker_with_a_large_stroke() {
 }
 #[test]
 fn painting_marker_with_a_text_child() {
-    assert_eq!(render("tests/painting/marker/with-a-text-child"), 0);
+    assert_eq!(render("tests/painting/marker/with-a-text-child"), 655);
 }
 #[test]
 fn painting_marker_with_an_image_child() {
@@ -4242,7 +4242,10 @@ fn painting_paint_order_duplicates() {
 }
 #[test]
 fn painting_paint_order_fill_markers_stroke() {
-    assert_eq!(render("tests/painting/paint-order/fill-markers-stroke"), 0);
+    assert_eq!(
+        render("tests/painting/paint-order/fill-markers-stroke"),
+        576
+    );
 }
 #[test]
 fn painting_paint_order_fill() {
@@ -4266,11 +4269,11 @@ fn painting_paint_order_normal() {
 }
 #[test]
 fn painting_paint_order_on_text() {
-    assert_eq!(render("tests/painting/paint-order/on-text"), 0);
+    assert_eq!(render("tests/painting/paint-order/on-text"), 7912);
 }
 #[test]
 fn painting_paint_order_on_tspan() {
-    assert_eq!(render("tests/painting/paint-order/on-tspan"), 0);
+    assert_eq!(render("tests/painting/paint-order/on-tspan"), 7098);
 }
 #[test]
 fn painting_paint_order_stroke_invalid() {
@@ -4278,7 +4281,7 @@ fn painting_paint_order_stroke_invalid() {
 }
 #[test]
 fn painting_paint_order_stroke_markers() {
-    assert_eq!(render("tests/painting/paint-order/stroke-markers"), 0);
+    assert_eq!(render("tests/painting/paint-order/stroke-markers"), 544);
 }
 #[test]
 fn painting_paint_order_stroke() {
@@ -4328,7 +4331,7 @@ fn painting_shape_rendering_optimizeSpeed_on_circle() {
 fn painting_shape_rendering_optimizeSpeed_on_text() {
     assert_eq!(
         render("tests/painting/shape-rendering/optimizeSpeed-on-text"),
-        0
+        4807
     );
 }
 #[test]
@@ -4395,7 +4398,10 @@ fn painting_stroke_line_as_curve_2() {
 }
 #[test]
 fn painting_stroke_linear_gradient_on_text() {
-    assert_eq!(render("tests/painting/stroke/linear-gradient-on-text"), 0);
+    assert_eq!(
+        render("tests/painting/stroke/linear-gradient-on-text"),
+        7209
+    );
 }
 #[test]
 fn painting_stroke_linear_gradient() {
@@ -4411,7 +4417,7 @@ fn painting_stroke_none() {
 }
 #[test]
 fn painting_stroke_pattern_on_text() {
-    assert_eq!(render("tests/painting/stroke/pattern-on-text"), 0);
+    assert_eq!(render("tests/painting/stroke/pattern-on-text"), 6456);
 }
 #[test]
 fn painting_stroke_pattern_with_objectBoundingBox_fallback_on_zero_bbox_shape() {
@@ -4433,7 +4439,10 @@ fn painting_stroke_pattern() {
 }
 #[test]
 fn painting_stroke_radial_gradient_on_text() {
-    assert_eq!(render("tests/painting/stroke/radial-gradient-on-text"), 0);
+    assert_eq!(
+        render("tests/painting/stroke/radial-gradient-on-text"),
+        7153
+    );
 }
 #[test]
 fn painting_stroke_radial_gradient() {
@@ -4661,7 +4670,7 @@ fn painting_stroke_opacity_on_parent() {
 }
 #[test]
 fn painting_stroke_opacity_on_text() {
-    assert_eq!(render("tests/painting/stroke-opacity/on-text"), 0);
+    assert_eq!(render("tests/painting/stroke-opacity/on-text"), 5565);
 }
 #[test]
 fn painting_stroke_opacity_with_linearGradient() {
@@ -4708,11 +4717,11 @@ fn painting_visibility_bbox_impact_2() {
 }
 #[test]
 fn painting_visibility_bbox_impact_3() {
-    assert_eq!(render("tests/painting/visibility/bbox-impact-3"), 0);
+    assert_eq!(render("tests/painting/visibility/bbox-impact-3"), 2059);
 }
 #[test]
 fn painting_visibility_collapse_on_tspan() {
-    assert_eq!(render("tests/painting/visibility/collapse-on-tspan"), 0);
+    assert_eq!(render("tests/painting/visibility/collapse-on-tspan"), 1761);
 }
 #[test]
 fn painting_visibility_hidden_on_group() {
@@ -4724,7 +4733,7 @@ fn painting_visibility_hidden_on_shape() {
 }
 #[test]
 fn painting_visibility_hidden_on_tspan() {
-    assert_eq!(render("tests/painting/visibility/hidden-on-tspan"), 0);
+    assert_eq!(render("tests/painting/visibility/hidden-on-tspan"), 1761);
 }
 #[test]
 fn shapes_circle_missing_cx_and_cy_attributes() {
@@ -5309,11 +5318,11 @@ fn shapes_rect_zero_width_attribute_processing() {
 }
 #[test]
 fn structure_a_inside_text() {
-    assert_eq!(render("tests/structure/a/inside-text"), 0);
+    assert_eq!(render("tests/structure/a/inside-text"), 4807);
 }
 #[test]
 fn structure_a_inside_tspan() {
-    assert_eq!(render("tests/structure/a/inside-tspan"), 0);
+    assert_eq!(render("tests/structure/a/inside-tspan"), 2121);
 }
 #[test]
 fn structure_a_on_shape() {
@@ -5321,11 +5330,11 @@ fn structure_a_on_shape() {
 }
 #[test]
 fn structure_a_on_text() {
-    assert_eq!(render("tests/structure/a/on-text"), 0);
+    assert_eq!(render("tests/structure/a/on-text"), 4807);
 }
 #[test]
 fn structure_a_on_tspan() {
-    assert_eq!(render("tests/structure/a/on-tspan"), 0);
+    assert_eq!(render("tests/structure/a/on-tspan"), 2233);
 }
 #[test]
 fn structure_defs_ignore_shapes_inside_defs() {
@@ -5349,7 +5358,10 @@ fn structure_defs_simple_case() {
 }
 #[test]
 fn structure_defs_style_inheritance_on_text() {
-    assert_eq!(render("tests/structure/defs/style-inheritance-on-text"), 0);
+    assert_eq!(
+        render("tests/structure/defs/style-inheritance-on-text"),
+        2958
+    );
 }
 #[test]
 fn structure_defs_style_inheritance() {
@@ -5764,7 +5776,7 @@ fn structure_svg_invalid_id_attribute_2() {
 }
 #[test]
 fn structure_svg_mixed_namespaces() {
-    assert_eq!(render("tests/structure/svg/mixed-namespaces"), 0);
+    assert_eq!(render("tests/structure/svg/mixed-namespaces"), 2257);
 }
 #[test]
 fn structure_svg_nested_svg_one_with_rect_and_one_with_viewBox() {
@@ -6094,7 +6106,7 @@ fn structure_systemLanguage_on_svg() {
 }
 #[test]
 fn structure_systemLanguage_on_tspan() {
-    assert_eq!(render("tests/structure/systemLanguage/on-tspan"), 0);
+    assert_eq!(render("tests/structure/systemLanguage/on-tspan"), 4807);
 }
 #[test]
 fn structure_systemLanguage_ru_Ru() {
@@ -6388,38 +6400,41 @@ fn structure_use_xlink_to_svg_element() {
 }
 #[test]
 fn text_alignment_baseline_after_edge() {
-    assert_eq!(render("tests/text/alignment-baseline/after-edge"), 0);
+    assert_eq!(render("tests/text/alignment-baseline/after-edge"), 1253);
 }
 #[test]
 fn text_alignment_baseline_alphabetic() {
-    assert_eq!(render("tests/text/alignment-baseline/alphabetic"), 0);
+    assert_eq!(render("tests/text/alignment-baseline/alphabetic"), 1193);
 }
 #[test]
 fn text_alignment_baseline_auto() {
-    assert_eq!(render("tests/text/alignment-baseline/auto"), 0);
+    assert_eq!(render("tests/text/alignment-baseline/auto"), 1193);
 }
 #[test]
 fn text_alignment_baseline_baseline() {
-    assert_eq!(render("tests/text/alignment-baseline/baseline"), 0);
+    assert_eq!(render("tests/text/alignment-baseline/baseline"), 1193);
 }
 #[test]
 fn text_alignment_baseline_before_edge() {
-    assert_eq!(render("tests/text/alignment-baseline/before-edge"), 0);
+    assert_eq!(render("tests/text/alignment-baseline/before-edge"), 1278);
 }
 #[test]
 fn text_alignment_baseline_central() {
-    assert_eq!(render("tests/text/alignment-baseline/central"), 0);
+    assert_eq!(render("tests/text/alignment-baseline/central"), 1212);
 }
 #[test]
 fn text_alignment_baseline_hanging_and_baseline_shift_eq_20_on_tspan() {
     assert_eq!(
         render("tests/text/alignment-baseline/hanging-and-baseline-shift-eq-20-on-tspan"),
-        0
+        1920
     );
 }
 #[test]
 fn text_alignment_baseline_hanging_on_tspan() {
-    assert_eq!(render("tests/text/alignment-baseline/hanging-on-tspan"), 0);
+    assert_eq!(
+        render("tests/text/alignment-baseline/hanging-on-tspan"),
+        1920
+    );
 }
 #[test]
 fn text_alignment_baseline_hanging_on_vertical() {
@@ -6432,150 +6447,159 @@ fn text_alignment_baseline_hanging_on_vertical() {
 fn text_alignment_baseline_hanging_with_underline() {
     assert_eq!(
         render("tests/text/alignment-baseline/hanging-with-underline"),
-        0
+        1953
     );
 }
 #[test]
 fn text_alignment_baseline_hanging() {
-    assert_eq!(render("tests/text/alignment-baseline/hanging"), 0);
+    assert_eq!(render("tests/text/alignment-baseline/hanging"), 1226);
 }
 #[test]
 fn text_alignment_baseline_ideographic() {
-    assert_eq!(render("tests/text/alignment-baseline/ideographic"), 0);
+    assert_eq!(render("tests/text/alignment-baseline/ideographic"), 1253);
 }
 #[test]
 fn text_alignment_baseline_inherit() {
-    assert_eq!(render("tests/text/alignment-baseline/inherit"), 0);
+    assert_eq!(render("tests/text/alignment-baseline/inherit"), 1226);
 }
 #[test]
 fn text_alignment_baseline_mathematical() {
-    assert_eq!(render("tests/text/alignment-baseline/mathematical"), 0);
+    assert_eq!(render("tests/text/alignment-baseline/mathematical"), 1212);
 }
 #[test]
 fn text_alignment_baseline_middle_on_textPath() {
     assert_eq!(
         render("tests/text/alignment-baseline/middle-on-textPath"),
-        0
+        2366
     );
 }
 #[test]
 fn text_alignment_baseline_middle() {
-    assert_eq!(render("tests/text/alignment-baseline/middle"), 0);
+    assert_eq!(render("tests/text/alignment-baseline/middle"), 1223);
 }
 #[test]
 fn text_alignment_baseline_text_after_edge() {
-    assert_eq!(render("tests/text/alignment-baseline/text-after-edge"), 0);
+    assert_eq!(
+        render("tests/text/alignment-baseline/text-after-edge"),
+        1253
+    );
 }
 #[test]
 fn text_alignment_baseline_text_before_edge() {
-    assert_eq!(render("tests/text/alignment-baseline/text-before-edge"), 0);
+    assert_eq!(
+        render("tests/text/alignment-baseline/text-before-edge"),
+        1278
+    );
 }
 #[test]
 fn text_alignment_baseline_two_textPath_with_middle_on_first() {
     assert_eq!(
         render("tests/text/alignment-baseline/two-textPath-with-middle-on-first"),
-        0
+        4787
     );
 }
 #[test]
 fn text_baseline_shift__10() {
-    assert_eq!(render("tests/text/baseline-shift/-10"), 0);
+    assert_eq!(render("tests/text/baseline-shift/-10"), 3304);
 }
 #[test]
 fn text_baseline_shift__50percent() {
-    assert_eq!(render("tests/text/baseline-shift/-50percent"), 0);
+    assert_eq!(render("tests/text/baseline-shift/-50percent"), 3324);
 }
 #[test]
 fn text_baseline_shift_0() {
-    assert_eq!(render("tests/text/baseline-shift/0"), 0);
+    assert_eq!(render("tests/text/baseline-shift/0"), 3300);
 }
 #[test]
 fn text_baseline_shift_10() {
-    assert_eq!(render("tests/text/baseline-shift/10"), 0);
+    assert_eq!(render("tests/text/baseline-shift/10"), 3296);
 }
 #[test]
 fn text_baseline_shift_2mm() {
-    assert_eq!(render("tests/text/baseline-shift/2mm"), 0);
+    assert_eq!(render("tests/text/baseline-shift/2mm"), 3300);
 }
 #[test]
 fn text_baseline_shift_50percent() {
-    assert_eq!(render("tests/text/baseline-shift/50percent"), 0);
+    assert_eq!(render("tests/text/baseline-shift/50percent"), 3316);
 }
 #[test]
 fn text_baseline_shift_baseline() {
-    assert_eq!(render("tests/text/baseline-shift/baseline"), 0);
+    assert_eq!(render("tests/text/baseline-shift/baseline"), 3300);
 }
 #[test]
 fn text_baseline_shift_deeply_nested_super() {
-    assert_eq!(render("tests/text/baseline-shift/deeply-nested-super"), 0);
+    assert_eq!(
+        render("tests/text/baseline-shift/deeply-nested-super"),
+        1948
+    );
 }
 #[test]
 fn text_baseline_shift_inheritance_1() {
-    assert_eq!(render("tests/text/baseline-shift/inheritance-1"), 0);
+    assert_eq!(render("tests/text/baseline-shift/inheritance-1"), 4807);
 }
 #[test]
 fn text_baseline_shift_inheritance_2() {
-    assert_eq!(render("tests/text/baseline-shift/inheritance-2"), 0);
+    assert_eq!(render("tests/text/baseline-shift/inheritance-2"), 4807);
 }
 #[test]
 fn text_baseline_shift_inheritance_3() {
-    assert_eq!(render("tests/text/baseline-shift/inheritance-3"), 0);
+    assert_eq!(render("tests/text/baseline-shift/inheritance-3"), 4807);
 }
 #[test]
 fn text_baseline_shift_inheritance_4() {
-    assert_eq!(render("tests/text/baseline-shift/inheritance-4"), 0);
+    assert_eq!(render("tests/text/baseline-shift/inheritance-4"), 4807);
 }
 #[test]
 fn text_baseline_shift_inheritance_5() {
-    assert_eq!(render("tests/text/baseline-shift/inheritance-5"), 0);
+    assert_eq!(render("tests/text/baseline-shift/inheritance-5"), 4807);
 }
 #[test]
 fn text_baseline_shift_invalid_value() {
-    assert_eq!(render("tests/text/baseline-shift/invalid-value"), 0);
+    assert_eq!(render("tests/text/baseline-shift/invalid-value"), 3300);
 }
 #[test]
 fn text_baseline_shift_mixed_nested() {
-    assert_eq!(render("tests/text/baseline-shift/mixed-nested"), 0);
+    assert_eq!(render("tests/text/baseline-shift/mixed-nested"), 3333);
 }
 #[test]
 fn text_baseline_shift_nested_length() {
-    assert_eq!(render("tests/text/baseline-shift/nested-length"), 0);
+    assert_eq!(render("tests/text/baseline-shift/nested-length"), 3340);
 }
 #[test]
 fn text_baseline_shift_nested_super() {
-    assert_eq!(render("tests/text/baseline-shift/nested-super"), 0);
+    assert_eq!(render("tests/text/baseline-shift/nested-super"), 3339);
 }
 #[test]
 fn text_baseline_shift_nested_with_baseline_1() {
     assert_eq!(
         render("tests/text/baseline-shift/nested-with-baseline-1"),
-        0
+        4926
     );
 }
 #[test]
 fn text_baseline_shift_nested_with_baseline_2() {
     assert_eq!(
         render("tests/text/baseline-shift/nested-with-baseline-2"),
-        0
+        4926
     );
 }
 #[test]
 fn text_baseline_shift_sub() {
-    assert_eq!(render("tests/text/baseline-shift/sub"), 0);
+    assert_eq!(render("tests/text/baseline-shift/sub"), 3302);
 }
 #[test]
 fn text_baseline_shift_super() {
-    assert_eq!(render("tests/text/baseline-shift/super"), 0);
+    assert_eq!(render("tests/text/baseline-shift/super"), 3315);
 }
 #[test]
 fn text_baseline_shift_with_rotate() {
-    assert_eq!(render("tests/text/baseline-shift/with-rotate"), 0);
+    assert_eq!(render("tests/text/baseline-shift/with-rotate"), 3435);
 }
 #[test]
 fn text_direction_rtl_with_vertical_writing_mode() {
     assert_eq!(
         render("tests/text/direction/rtl-with-vertical-writing-mode"),
-        0
+        1485
     );
 }
 #[test]
@@ -6586,93 +6610,96 @@ fn text_direction_rtl() {
 fn text_dominant_baseline_alignment_baseline_and_baseline_shift_on_tspans() {
     assert_eq!(
         render("tests/text/dominant-baseline/alignment-baseline-and-baseline-shift-on-tspans"),
-        0
+        1566
     );
 }
 #[test]
 fn text_dominant_baseline_alignment_baseline_eq_baseline_on_tspan() {
     assert_eq!(
         render("tests/text/dominant-baseline/alignment-baseline=baseline-on-tspan"),
-        0
+        1068
     );
 }
 #[test]
 fn text_dominant_baseline_alphabetic() {
-    assert_eq!(render("tests/text/dominant-baseline/alphabetic"), 0);
+    assert_eq!(render("tests/text/dominant-baseline/alphabetic"), 1193);
 }
 #[test]
 fn text_dominant_baseline_auto() {
-    assert_eq!(render("tests/text/dominant-baseline/auto"), 0);
+    assert_eq!(render("tests/text/dominant-baseline/auto"), 1193);
 }
 #[test]
 fn text_dominant_baseline_central() {
-    assert_eq!(render("tests/text/dominant-baseline/central"), 0);
+    assert_eq!(render("tests/text/dominant-baseline/central"), 1212);
 }
 #[test]
 fn text_dominant_baseline_complex() {
-    assert_eq!(render("tests/text/dominant-baseline/complex"), 0);
+    assert_eq!(render("tests/text/dominant-baseline/complex"), 1065);
 }
 #[test]
 fn text_dominant_baseline_different_alignment_baseline_on_tspan() {
     assert_eq!(
         render("tests/text/dominant-baseline/different-alignment-baseline-on-tspan"),
-        0
+        1756
     );
 }
 #[test]
 fn text_dominant_baseline_dummy_tspan() {
-    assert_eq!(render("tests/text/dominant-baseline/dummy-tspan"), 0);
+    assert_eq!(render("tests/text/dominant-baseline/dummy-tspan"), 1068);
 }
 #[test]
 fn text_dominant_baseline_equal_alignment_baseline_on_tspan() {
     assert_eq!(
         render("tests/text/dominant-baseline/equal-alignment-baseline-on-tspan"),
-        0
+        1749
     );
 }
 #[test]
 fn text_dominant_baseline_hanging() {
-    assert_eq!(render("tests/text/dominant-baseline/hanging"), 0);
+    assert_eq!(render("tests/text/dominant-baseline/hanging"), 933);
 }
 #[test]
 fn text_dominant_baseline_ideographic() {
-    assert_eq!(render("tests/text/dominant-baseline/ideographic"), 0);
+    assert_eq!(render("tests/text/dominant-baseline/ideographic"), 1253);
 }
 #[test]
 fn text_dominant_baseline_inherit() {
-    assert_eq!(render("tests/text/dominant-baseline/inherit"), 0);
+    assert_eq!(render("tests/text/dominant-baseline/inherit"), 1223);
 }
 #[test]
 fn text_dominant_baseline_mathematical() {
-    assert_eq!(render("tests/text/dominant-baseline/mathematical"), 0);
+    assert_eq!(render("tests/text/dominant-baseline/mathematical"), 1212);
 }
 #[test]
 fn text_dominant_baseline_middle() {
-    assert_eq!(render("tests/text/dominant-baseline/middle"), 0);
+    assert_eq!(render("tests/text/dominant-baseline/middle"), 1223);
 }
 #[test]
 fn text_dominant_baseline_nested() {
-    assert_eq!(render("tests/text/dominant-baseline/nested"), 0);
+    assert_eq!(render("tests/text/dominant-baseline/nested"), 1645);
 }
 #[test]
 fn text_dominant_baseline_no_change() {
-    assert_eq!(render("tests/text/dominant-baseline/no-change"), 0);
+    assert_eq!(render("tests/text/dominant-baseline/no-change"), 1945);
 }
 #[test]
 fn text_dominant_baseline_reset_size() {
-    assert_eq!(render("tests/text/dominant-baseline/reset-size"), 0);
+    assert_eq!(render("tests/text/dominant-baseline/reset-size"), 1193);
 }
 #[test]
 fn text_dominant_baseline_sequential() {
-    assert_eq!(render("tests/text/dominant-baseline/sequential"), 0);
+    assert_eq!(render("tests/text/dominant-baseline/sequential"), 1543);
 }
 #[test]
 fn text_dominant_baseline_text_after_edge() {
-    assert_eq!(render("tests/text/dominant-baseline/text-after-edge"), 0);
+    assert_eq!(render("tests/text/dominant-baseline/text-after-edge"), 1253);
 }
 #[test]
 fn text_dominant_baseline_text_before_edge() {
-    assert_eq!(render("tests/text/dominant-baseline/text-before-edge"), 0);
+    assert_eq!(
+        render("tests/text/dominant-baseline/text-before-edge"),
+        1278
+    );
 }
 #[test]
 fn text_dominant_baseline_use_script() {
@@ -6688,7 +6715,7 @@ fn text_font_family_cursive() {
 }
 #[test]
 fn text_font_family_double_quoted() {
-    assert_eq!(render("tests/text/font-family/double-quoted"), 0);
+    assert_eq!(render("tests/text/font-family/double-quoted"), 1464);
 }
 #[test]
 fn text_font_family_fallback_1() {
@@ -6696,7 +6723,7 @@ fn text_font_family_fallback_1() {
 }
 #[test]
 fn text_font_family_fallback_2() {
-    assert_eq!(render("tests/text/font-family/fallback-2"), 0);
+    assert_eq!(render("tests/text/font-family/fallback-2"), 1464);
 }
 #[test]
 fn text_font_family_fantasy() {
@@ -6704,7 +6731,7 @@ fn text_font_family_fantasy() {
 }
 #[test]
 fn text_font_family_font_list() {
-    assert_eq!(render("tests/text/font-family/font-list"), 0);
+    assert_eq!(render("tests/text/font-family/font-list"), 2320);
 }
 #[test]
 fn text_font_family_monospace() {
@@ -6712,7 +6739,7 @@ fn text_font_family_monospace() {
 }
 #[test]
 fn text_font_family_noto_sans() {
-    assert_eq!(render("tests/text/font-family/noto-sans"), 0);
+    assert_eq!(render("tests/text/font-family/noto-sans"), 1464);
 }
 #[test]
 fn text_font_family_sans_serif() {
@@ -6724,7 +6751,7 @@ fn text_font_family_serif() {
 }
 #[test]
 fn text_font_family_source_sans_pro() {
-    assert_eq!(render("tests/text/font-family/source-sans-pro"), 0);
+    assert_eq!(render("tests/text/font-family/source-sans-pro"), 2320);
 }
 #[test]
 fn text_font_kerning_arabic_script() {
@@ -6732,39 +6759,39 @@ fn text_font_kerning_arabic_script() {
 }
 #[test]
 fn text_font_kerning_as_property() {
-    assert_eq!(render("tests/text/font-kerning/as-property"), 0);
+    assert_eq!(render("tests/text/font-kerning/as-property"), 3098);
 }
 #[test]
 fn text_font_kerning_none() {
-    assert_eq!(render("tests/text/font-kerning/none"), 0);
+    assert_eq!(render("tests/text/font-kerning/none"), 3224);
 }
 #[test]
 fn text_font_size_em_nested_and_mixed() {
-    assert_eq!(render("tests/text/font-size/em-nested-and-mixed"), 0);
+    assert_eq!(render("tests/text/font-size/em-nested-and-mixed"), 1711);
 }
 #[test]
 fn text_font_size_em() {
-    assert_eq!(render("tests/text/font-size/em"), 0);
+    assert_eq!(render("tests/text/font-size/em"), 1711);
 }
 #[test]
 fn text_font_size_ex_nested_and_mixed() {
-    assert_eq!(render("tests/text/font-size/ex-nested-and-mixed"), 0);
+    assert_eq!(render("tests/text/font-size/ex-nested-and-mixed"), 1049);
 }
 #[test]
 fn text_font_size_ex() {
-    assert_eq!(render("tests/text/font-size/ex"), 0);
+    assert_eq!(render("tests/text/font-size/ex"), 1252);
 }
 #[test]
 fn text_font_size_inheritance() {
-    assert_eq!(render("tests/text/font-size/inheritance"), 0);
+    assert_eq!(render("tests/text/font-size/inheritance"), 1464);
 }
 #[test]
 fn text_font_size_mixed_values() {
-    assert_eq!(render("tests/text/font-size/mixed-values"), 0);
+    assert_eq!(render("tests/text/font-size/mixed-values"), 1333);
 }
 #[test]
 fn text_font_size_named_value() {
-    assert_eq!(render("tests/text/font-size/named-value"), 0);
+    assert_eq!(render("tests/text/font-size/named-value"), 1374);
 }
 #[test]
 fn text_font_size_negative_size() {
@@ -6772,27 +6799,27 @@ fn text_font_size_negative_size() {
 }
 #[test]
 fn text_font_size_nested_percent_values_1() {
-    assert_eq!(render("tests/text/font-size/nested-percent-values-1"), 0);
+    assert_eq!(render("tests/text/font-size/nested-percent-values-1"), 1465);
 }
 #[test]
 fn text_font_size_nested_percent_values_2() {
-    assert_eq!(render("tests/text/font-size/nested-percent-values-2"), 0);
+    assert_eq!(render("tests/text/font-size/nested-percent-values-2"), 1465);
 }
 #[test]
 fn text_font_size_percent_value() {
-    assert_eq!(render("tests/text/font-size/percent-value"), 0);
+    assert_eq!(render("tests/text/font-size/percent-value"), 1465);
 }
 #[test]
 fn text_font_size_simple_case() {
-    assert_eq!(render("tests/text/font-size/simple-case"), 0);
+    assert_eq!(render("tests/text/font-size/simple-case"), 1464);
 }
 #[test]
 fn text_font_size_zero_size_on_parent_1() {
-    assert_eq!(render("tests/text/font-size/zero-size-on-parent-1"), 0);
+    assert_eq!(render("tests/text/font-size/zero-size-on-parent-1"), 1464);
 }
 #[test]
 fn text_font_size_zero_size_on_parent_2() {
-    assert_eq!(render("tests/text/font-size/zero-size-on-parent-2"), 0);
+    assert_eq!(render("tests/text/font-size/zero-size-on-parent-2"), 1464);
 }
 #[test]
 fn text_font_size_zero_size_on_parent_3() {
@@ -6804,153 +6831,156 @@ fn text_font_size_zero_size() {
 }
 #[test]
 fn text_font_size_adjust_simple_case() {
-    assert_eq!(render("tests/text/font-size-adjust/simple-case"), 0);
+    assert_eq!(render("tests/text/font-size-adjust/simple-case"), 3274);
 }
 #[test]
 fn text_font_stretch_extra_condensed() {
-    assert_eq!(render("tests/text/font-stretch/extra-condensed"), 0);
+    assert_eq!(render("tests/text/font-stretch/extra-condensed"), 1464);
 }
 #[test]
 fn text_font_stretch_inherit() {
-    assert_eq!(render("tests/text/font-stretch/inherit"), 0);
+    assert_eq!(render("tests/text/font-stretch/inherit"), 1464);
 }
 #[test]
 fn text_font_stretch_narrower() {
-    assert_eq!(render("tests/text/font-stretch/narrower"), 0);
+    assert_eq!(render("tests/text/font-stretch/narrower"), 1464);
 }
 #[test]
 fn text_font_style_inherit() {
-    assert_eq!(render("tests/text/font-style/inherit"), 0);
+    assert_eq!(render("tests/text/font-style/inherit"), 2121);
 }
 #[test]
 fn text_font_style_italic() {
-    assert_eq!(render("tests/text/font-style/italic"), 0);
+    assert_eq!(render("tests/text/font-style/italic"), 2121);
 }
 #[test]
 fn text_font_style_oblique() {
-    assert_eq!(render("tests/text/font-style/oblique"), 0);
+    assert_eq!(render("tests/text/font-style/oblique"), 2121);
 }
 #[test]
 fn text_font_variant_inherit() {
-    assert_eq!(render("tests/text/font-variant/inherit"), 0);
+    assert_eq!(render("tests/text/font-variant/inherit"), 4811);
 }
 #[test]
 fn text_font_variant_small_caps() {
-    assert_eq!(render("tests/text/font-variant/small-caps"), 0);
+    assert_eq!(render("tests/text/font-variant/small-caps"), 4811);
 }
 #[test]
 fn text_font_weight_650() {
-    assert_eq!(render("tests/text/font-weight/650"), 0);
+    assert_eq!(render("tests/text/font-weight/650"), 2928);
 }
 #[test]
 fn text_font_weight_700() {
-    assert_eq!(render("tests/text/font-weight/700"), 0);
+    assert_eq!(render("tests/text/font-weight/700"), 1795);
 }
 #[test]
 fn text_font_weight_bold() {
-    assert_eq!(render("tests/text/font-weight/bold"), 0);
+    assert_eq!(render("tests/text/font-weight/bold"), 3590);
 }
 #[test]
 fn text_font_weight_bolder_with_clamping() {
-    assert_eq!(render("tests/text/font-weight/bolder-with-clamping"), 0);
+    assert_eq!(render("tests/text/font-weight/bolder-with-clamping"), 4936);
 }
 #[test]
 fn text_font_weight_bolder_without_parent() {
-    assert_eq!(render("tests/text/font-weight/bolder-without-parent"), 0);
+    assert_eq!(render("tests/text/font-weight/bolder-without-parent"), 3590);
 }
 #[test]
 fn text_font_weight_bolder() {
-    assert_eq!(render("tests/text/font-weight/bolder"), 0);
+    assert_eq!(render("tests/text/font-weight/bolder"), 3590);
 }
 #[test]
 fn text_font_weight_inherit() {
-    assert_eq!(render("tests/text/font-weight/inherit"), 0);
+    assert_eq!(render("tests/text/font-weight/inherit"), 2928);
 }
 #[test]
 fn text_font_weight_invalid_number_1() {
-    assert_eq!(render("tests/text/font-weight/invalid-number-1"), 0);
+    assert_eq!(render("tests/text/font-weight/invalid-number-1"), 2928);
 }
 #[test]
 fn text_font_weight_lighter_with_clamping() {
-    assert_eq!(render("tests/text/font-weight/lighter-with-clamping"), 0);
+    assert_eq!(render("tests/text/font-weight/lighter-with-clamping"), 4056);
 }
 #[test]
 fn text_font_weight_lighter_without_parent() {
-    assert_eq!(render("tests/text/font-weight/lighter-without-parent"), 0);
+    assert_eq!(
+        render("tests/text/font-weight/lighter-without-parent"),
+        4056
+    );
 }
 #[test]
 fn text_font_weight_lighter() {
-    assert_eq!(render("tests/text/font-weight/lighter"), 0);
+    assert_eq!(render("tests/text/font-weight/lighter"), 3590);
 }
 #[test]
 fn text_font_weight_normal() {
-    assert_eq!(render("tests/text/font-weight/normal"), 0);
+    assert_eq!(render("tests/text/font-weight/normal"), 2928);
 }
 #[test]
 fn text_glyph_orientation_horizontal_simple_case() {
     assert_eq!(
         render("tests/text/glyph-orientation-horizontal/simple-case"),
-        0
+        1392
     );
 }
 #[test]
 fn text_glyph_orientation_vertical_simple_case() {
     assert_eq!(
         render("tests/text/glyph-orientation-vertical/simple-case"),
-        0
+        1405
     );
 }
 #[test]
 fn text_kerning_0() {
-    assert_eq!(render("tests/text/kerning/0"), 0);
+    assert_eq!(render("tests/text/kerning/0"), 4206);
 }
 #[test]
 fn text_kerning_10percent() {
-    assert_eq!(render("tests/text/kerning/10percent"), 0);
+    assert_eq!(render("tests/text/kerning/10percent"), 2039);
 }
 #[test]
 fn text_lengthAdjust_spacingAndGlyphs() {
-    assert_eq!(render("tests/text/lengthAdjust/spacingAndGlyphs"), 0);
+    assert_eq!(render("tests/text/lengthAdjust/spacingAndGlyphs"), 2326);
 }
 #[test]
 fn text_lengthAdjust_text_on_path() {
-    assert_eq!(render("tests/text/lengthAdjust/text-on-path"), 0);
+    assert_eq!(render("tests/text/lengthAdjust/text-on-path"), 2065);
 }
 #[test]
 fn text_lengthAdjust_vertical() {
-    assert_eq!(render("tests/text/lengthAdjust/vertical"), 0);
+    assert_eq!(render("tests/text/lengthAdjust/vertical"), 2424);
 }
 #[test]
 fn text_lengthAdjust_with_underline() {
-    assert_eq!(render("tests/text/lengthAdjust/with-underline"), 0);
+    assert_eq!(render("tests/text/lengthAdjust/with-underline"), 2326);
 }
 #[test]
 fn text_letter_spacing__3() {
-    assert_eq!(render("tests/text/letter-spacing/-3"), 0);
+    assert_eq!(render("tests/text/letter-spacing/-3"), 4764);
 }
 #[test]
 fn text_letter_spacing_0() {
-    assert_eq!(render("tests/text/letter-spacing/0"), 0);
+    assert_eq!(render("tests/text/letter-spacing/0"), 4807);
 }
 #[test]
 fn text_letter_spacing_1mm() {
-    assert_eq!(render("tests/text/letter-spacing/1mm"), 0);
+    assert_eq!(render("tests/text/letter-spacing/1mm"), 4853);
 }
 #[test]
 fn text_letter_spacing_3() {
-    assert_eq!(render("tests/text/letter-spacing/3"), 0);
+    assert_eq!(render("tests/text/letter-spacing/3"), 4884);
 }
 #[test]
 fn text_letter_spacing_5percent() {
-    assert_eq!(render("tests/text/letter-spacing/5percent"), 0);
+    assert_eq!(render("tests/text/letter-spacing/5percent"), 4850);
 }
 #[test]
 fn text_letter_spacing_filter_bbox() {
-    assert_eq!(render("tests/text/letter-spacing/filter-bbox"), 0);
+    assert_eq!(render("tests/text/letter-spacing/filter-bbox"), 1713);
 }
 #[test]
 fn text_letter_spacing_large_negative() {
-    assert_eq!(render("tests/text/letter-spacing/large-negative"), 0);
+    assert_eq!(render("tests/text/letter-spacing/large-negative"), 75);
 }
 #[test]
 fn text_letter_spacing_mixed_scripts() {
@@ -6958,7 +6988,7 @@ fn text_letter_spacing_mixed_scripts() {
 }
 #[test]
 fn text_letter_spacing_mixed_spacing() {
-    assert_eq!(render("tests/text/letter-spacing/mixed-spacing"), 0);
+    assert_eq!(render("tests/text/letter-spacing/mixed-spacing"), 743);
 }
 #[test]
 fn text_letter_spacing_non_ASCII_character() {
@@ -6966,7 +6996,7 @@ fn text_letter_spacing_non_ASCII_character() {
 }
 #[test]
 fn text_letter_spacing_normal() {
-    assert_eq!(render("tests/text/letter-spacing/normal"), 0);
+    assert_eq!(render("tests/text/letter-spacing/normal"), 4807);
 }
 #[test]
 fn text_letter_spacing_on_Arabic() {
@@ -6978,18 +7008,21 @@ fn text_text_bidi_reordering() {
 }
 #[test]
 fn text_text_complex_grapheme_split_by_tspan() {
-    assert_eq!(render("tests/text/text/complex-grapheme-split-by-tspan"), 0);
+    assert_eq!(
+        render("tests/text/text/complex-grapheme-split-by-tspan"),
+        1624
+    );
 }
 #[test]
 fn text_text_complex_graphemes_and_coordinates_list() {
     assert_eq!(
         render("tests/text/text/complex-graphemes-and-coordinates-list"),
-        0
+        787
     );
 }
 #[test]
 fn text_text_complex_graphemes() {
-    assert_eq!(render("tests/text/text/complex-graphemes"), 0);
+    assert_eq!(render("tests/text/text/complex-graphemes"), 815);
 }
 #[test]
 fn text_text_compound_emojis_and_coordinates_list() {
@@ -7004,29 +7037,32 @@ fn text_text_compound_emojis() {
 }
 #[test]
 fn text_text_dx_and_dy_instead_of_x_and_y() {
-    assert_eq!(render("tests/text/text/dx-and-dy-instead-of-x-and-y"), 0);
+    assert_eq!(render("tests/text/text/dx-and-dy-instead-of-x-and-y"), 4852);
 }
 #[test]
 fn text_text_dx_and_dy_with_less_values_than_characters() {
     assert_eq!(
         render("tests/text/text/dx-and-dy-with-less-values-than-characters"),
-        0
+        4807
     );
 }
 #[test]
 fn text_text_dx_and_dy_with_more_values_than_characters() {
     assert_eq!(
         render("tests/text/text/dx-and-dy-with-more-values-than-characters"),
-        0
+        4874
     );
 }
 #[test]
 fn text_text_dx_and_dy_with_multiple_values() {
-    assert_eq!(render("tests/text/text/dx-and-dy-with-multiple-values"), 0);
+    assert_eq!(
+        render("tests/text/text/dx-and-dy-with-multiple-values"),
+        4874
+    );
 }
 #[test]
 fn text_text_em_and_ex_coordinates() {
-    assert_eq!(render("tests/text/text/em-and-ex-coordinates"), 0);
+    assert_eq!(render("tests/text/text/em-and-ex-coordinates"), 4873);
 }
 #[test]
 fn text_text_emojis() {
@@ -7034,19 +7070,19 @@ fn text_text_emojis() {
 }
 #[test]
 fn text_text_escaped_text_1() {
-    assert_eq!(render("tests/text/text/escaped-text-1"), 0);
+    assert_eq!(render("tests/text/text/escaped-text-1"), 4852);
 }
 #[test]
 fn text_text_escaped_text_2() {
-    assert_eq!(render("tests/text/text/escaped-text-2"), 0);
+    assert_eq!(render("tests/text/text/escaped-text-2"), 998);
 }
 #[test]
 fn text_text_escaped_text_3() {
-    assert_eq!(render("tests/text/text/escaped-text-3"), 0);
+    assert_eq!(render("tests/text/text/escaped-text-3"), 3875);
 }
 #[test]
 fn text_text_escaped_text_4() {
-    assert_eq!(render("tests/text/text/escaped-text-4"), 0);
+    assert_eq!(render("tests/text/text/escaped-text-4"), 1089);
 }
 #[test]
 fn text_text_fill_rule_eq_evenodd() {
@@ -7054,11 +7090,11 @@ fn text_text_fill_rule_eq_evenodd() {
 }
 #[test]
 fn text_text_filter_bbox() {
-    assert_eq!(render("tests/text/text/filter-bbox"), 0);
+    assert_eq!(render("tests/text/text/filter-bbox"), 4497);
 }
 #[test]
 fn text_text_mm_coordinates() {
-    assert_eq!(render("tests/text/text/mm-coordinates"), 0);
+    assert_eq!(render("tests/text/text/mm-coordinates"), 4942);
 }
 #[test]
 fn text_text_nested() {
@@ -7066,19 +7102,19 @@ fn text_text_nested() {
 }
 #[test]
 fn text_text_no_coordinates() {
-    assert_eq!(render("tests/text/text/no-coordinates"), 0);
+    assert_eq!(render("tests/text/text/no-coordinates"), 4807);
 }
 #[test]
 fn text_text_percent_value_on_dx_and_dy() {
-    assert_eq!(render("tests/text/text/percent-value-on-dx-and-dy"), 0);
+    assert_eq!(render("tests/text/text/percent-value-on-dx-and-dy"), 2272);
 }
 #[test]
 fn text_text_percent_value_on_x_and_y() {
-    assert_eq!(render("tests/text/text/percent-value-on-x-and-y"), 0);
+    assert_eq!(render("tests/text/text/percent-value-on-x-and-y"), 2272);
 }
 #[test]
 fn text_text_real_text_height() {
-    assert_eq!(render("tests/text/text/real-text-height"), 0);
+    assert_eq!(render("tests/text/text/real-text-height"), 4853);
 }
 #[test]
 fn text_text_rotate_on_Arabic() {
@@ -7086,72 +7122,72 @@ fn text_text_rotate_on_Arabic() {
 }
 #[test]
 fn text_text_rotate_with_an_invalid_angle() {
-    assert_eq!(render("tests/text/text/rotate-with-an-invalid-angle"), 0);
+    assert_eq!(render("tests/text/text/rotate-with-an-invalid-angle"), 3274);
 }
 #[test]
 fn text_text_rotate_with_less_values_than_characters() {
     assert_eq!(
         render("tests/text/text/rotate-with-less-values-than-characters"),
-        0
+        5327
     );
 }
 #[test]
 fn text_text_rotate_with_more_values_than_characters() {
     assert_eq!(
         render("tests/text/text/rotate-with-more-values-than-characters"),
-        0
+        5334
     );
 }
 #[test]
 fn text_text_rotate_with_multiple_values_and_complex_text() {
     assert_eq!(
         render("tests/text/text/rotate-with-multiple-values-and-complex-text"),
-        0
+        2736
     );
 }
 #[test]
 fn text_text_rotate_with_multiple_values_underline_and_pattern() {
     assert_eq!(
         render("tests/text/text/rotate-with-multiple-values-underline-and-pattern"),
-        0
+        3714
     );
 }
 #[test]
 fn text_text_rotate_with_multiple_values() {
-    assert_eq!(render("tests/text/text/rotate-with-multiple-values"), 0);
+    assert_eq!(render("tests/text/text/rotate-with-multiple-values"), 5334);
 }
 #[test]
 fn text_text_rotate() {
-    assert_eq!(render("tests/text/text/rotate"), 0);
+    assert_eq!(render("tests/text/text/rotate"), 5238);
 }
 #[test]
 fn text_text_simple_case() {
-    assert_eq!(render("tests/text/text/simple-case"), 0);
+    assert_eq!(render("tests/text/text/simple-case"), 4807);
 }
 #[test]
 fn text_text_transform() {
-    assert_eq!(render("tests/text/text/transform"), 0);
+    assert_eq!(render("tests/text/text/transform"), 3383);
 }
 #[test]
 fn text_text_x_and_y_with_dx_and_dy_lists() {
-    assert_eq!(render("tests/text/text/x-and-y-with-dx-and-dy-lists"), 0);
+    assert_eq!(render("tests/text/text/x-and-y-with-dx-and-dy-lists"), 2770);
 }
 #[test]
 fn text_text_x_and_y_with_dx_and_dy() {
-    assert_eq!(render("tests/text/text/x-and-y-with-dx-and-dy"), 0);
+    assert_eq!(render("tests/text/text/x-and-y-with-dx-and-dy"), 4852);
 }
 #[test]
 fn text_text_x_and_y_with_less_values_than_characters() {
     assert_eq!(
         render("tests/text/text/x-and-y-with-less-values-than-characters"),
-        0
+        2363
     );
 }
 #[test]
 fn text_text_x_and_y_with_more_values_than_characters() {
     assert_eq!(
         render("tests/text/text/x-and-y-with-more-values-than-characters"),
-        0
+        2435
     );
 }
 #[test]
@@ -7165,12 +7201,12 @@ fn text_text_x_and_y_with_multiple_values_and_arabic_text() {
 fn text_text_x_and_y_with_multiple_values_and_tspan() {
     assert_eq!(
         render("tests/text/text/x-and-y-with-multiple-values-and-tspan"),
-        0
+        4359
     );
 }
 #[test]
 fn text_text_x_and_y_with_multiple_values() {
-    assert_eq!(render("tests/text/text/x-and-y-with-multiple-values"), 0);
+    assert_eq!(render("tests/text/text/x-and-y-with-multiple-values"), 2435);
 }
 #[test]
 fn text_text_xml_lang_eq_ja() {
@@ -7178,47 +7214,50 @@ fn text_text_xml_lang_eq_ja() {
 }
 #[test]
 fn text_text_xml_space() {
-    assert_eq!(render("tests/text/text/xml-space"), 0);
+    assert_eq!(render("tests/text/text/xml-space"), 1074);
 }
 #[test]
 fn text_text_zalgo() {
-    assert_eq!(render("tests/text/text/zalgo"), 0);
+    assert_eq!(render("tests/text/text/zalgo"), 4154);
 }
 #[test]
 fn text_text_anchor_coordinates_list() {
-    assert_eq!(render("tests/text/text-anchor/coordinates-list"), 0);
+    assert_eq!(render("tests/text/text-anchor/coordinates-list"), 498);
 }
 #[test]
 fn text_text_anchor_end_on_text() {
-    assert_eq!(render("tests/text/text-anchor/end-on-text"), 0);
+    assert_eq!(render("tests/text/text-anchor/end-on-text"), 2091);
 }
 #[test]
 fn text_text_anchor_end_with_letter_spacing() {
-    assert_eq!(render("tests/text/text-anchor/end-with-letter-spacing"), 0);
+    assert_eq!(
+        render("tests/text/text-anchor/end-with-letter-spacing"),
+        1042
+    );
 }
 #[test]
 fn text_text_anchor_inheritance_1() {
-    assert_eq!(render("tests/text/text-anchor/inheritance-1"), 0);
+    assert_eq!(render("tests/text/text-anchor/inheritance-1"), 2025);
 }
 #[test]
 fn text_text_anchor_inheritance_2() {
-    assert_eq!(render("tests/text/text-anchor/inheritance-2"), 0);
+    assert_eq!(render("tests/text/text-anchor/inheritance-2"), 1287);
 }
 #[test]
 fn text_text_anchor_inheritance_3() {
-    assert_eq!(render("tests/text/text-anchor/inheritance-3"), 0);
+    assert_eq!(render("tests/text/text-anchor/inheritance-3"), 3274);
 }
 #[test]
 fn text_text_anchor_invalid_value_on_text() {
-    assert_eq!(render("tests/text/text-anchor/invalid-value-on-text"), 0);
+    assert_eq!(render("tests/text/text-anchor/invalid-value-on-text"), 2958);
 }
 #[test]
 fn text_text_anchor_middle_on_text() {
-    assert_eq!(render("tests/text/text-anchor/middle-on-text"), 0);
+    assert_eq!(render("tests/text/text-anchor/middle-on-text"), 2039);
 }
 #[test]
 fn text_text_anchor_on_the_first_tspan() {
-    assert_eq!(render("tests/text/text-anchor/on-the-first-tspan"), 0);
+    assert_eq!(render("tests/text/text-anchor/on-the-first-tspan"), 656);
 }
 #[test]
 fn text_text_anchor_on_tspan_with_arabic() {
@@ -7226,165 +7265,165 @@ fn text_text_anchor_on_tspan_with_arabic() {
 }
 #[test]
 fn text_text_anchor_on_tspan() {
-    assert_eq!(render("tests/text/text-anchor/on-tspan"), 0);
+    assert_eq!(render("tests/text/text-anchor/on-tspan"), 3533);
 }
 #[test]
 fn text_text_anchor_start_on_text() {
-    assert_eq!(render("tests/text/text-anchor/start-on-text"), 0);
+    assert_eq!(render("tests/text/text-anchor/start-on-text"), 2958);
 }
 #[test]
 fn text_text_anchor_text_anchor_not_on_text_chunk() {
     assert_eq!(
         render("tests/text/text-anchor/text-anchor-not-on-text-chunk"),
-        0
+        2277
     );
 }
 #[test]
 fn text_text_decoration_all_types_inline_comma_separated() {
     assert_eq!(
         render("tests/text/text-decoration/all-types-inline-comma-separated"),
-        0
+        3768
     );
 }
 #[test]
 fn text_text_decoration_all_types_inline_no_spaces() {
     assert_eq!(
         render("tests/text/text-decoration/all-types-inline-no-spaces"),
-        0
+        3768
     );
 }
 #[test]
 fn text_text_decoration_all_types_inline() {
-    assert_eq!(render("tests/text/text-decoration/all-types-inline"), 0);
+    assert_eq!(render("tests/text/text-decoration/all-types-inline"), 3922);
 }
 #[test]
 fn text_text_decoration_all_types_nested() {
-    assert_eq!(render("tests/text/text-decoration/all-types-nested"), 0);
+    assert_eq!(render("tests/text/text-decoration/all-types-nested"), 3922);
 }
 #[test]
 fn text_text_decoration_indirect() {
-    assert_eq!(render("tests/text/text-decoration/indirect"), 0);
+    assert_eq!(render("tests/text/text-decoration/indirect"), 3542);
 }
 #[test]
 fn text_text_decoration_line_through() {
-    assert_eq!(render("tests/text/text-decoration/line-through"), 0);
+    assert_eq!(render("tests/text/text-decoration/line-through"), 3537);
 }
 #[test]
 fn text_text_decoration_outside_the_text_element() {
     assert_eq!(
         render("tests/text/text-decoration/outside-the-text-element"),
-        0
+        2990
     );
 }
 #[test]
 fn text_text_decoration_overline() {
-    assert_eq!(render("tests/text/text-decoration/overline"), 0);
+    assert_eq!(render("tests/text/text-decoration/overline"), 4099);
 }
 #[test]
 fn text_text_decoration_style_resolving_1() {
-    assert_eq!(render("tests/text/text-decoration/style-resolving-1"), 0);
+    assert_eq!(render("tests/text/text-decoration/style-resolving-1"), 3537);
 }
 #[test]
 fn text_text_decoration_style_resolving_2() {
-    assert_eq!(render("tests/text/text-decoration/style-resolving-2"), 0);
+    assert_eq!(render("tests/text/text-decoration/style-resolving-2"), 3537);
 }
 #[test]
 fn text_text_decoration_style_resolving_3() {
-    assert_eq!(render("tests/text/text-decoration/style-resolving-3"), 0);
+    assert_eq!(render("tests/text/text-decoration/style-resolving-3"), 3537);
 }
 #[test]
 fn text_text_decoration_style_resolving_4() {
-    assert_eq!(render("tests/text/text-decoration/style-resolving-4"), 0);
+    assert_eq!(render("tests/text/text-decoration/style-resolving-4"), 7084);
 }
 #[test]
 fn text_text_decoration_tspan_decoration() {
-    assert_eq!(render("tests/text/text-decoration/tspan-decoration"), 0);
+    assert_eq!(render("tests/text/text-decoration/tspan-decoration"), 2458);
 }
 #[test]
 fn text_text_decoration_underline_with_dy_list_1() {
     assert_eq!(
         render("tests/text/text-decoration/underline-with-dy-list-1"),
-        0
+        3119
     );
 }
 #[test]
 fn text_text_decoration_underline_with_dy_list_2() {
     assert_eq!(
         render("tests/text/text-decoration/underline-with-dy-list-2"),
-        0
+        4740
     );
 }
 #[test]
 fn text_text_decoration_underline_with_rotate_list_3() {
     assert_eq!(
         render("tests/text/text-decoration/underline-with-rotate-list-3"),
-        0
+        3688
     );
 }
 #[test]
 fn text_text_decoration_underline_with_rotate_list_4() {
     assert_eq!(
         render("tests/text/text-decoration/underline-with-rotate-list-4"),
-        0
+        5233
     );
 }
 #[test]
 fn text_text_decoration_underline_with_y_list() {
     assert_eq!(
         render("tests/text/text-decoration/underline-with-y-list"),
-        0
+        2594
     );
 }
 #[test]
 fn text_text_decoration_underline() {
-    assert_eq!(render("tests/text/text-decoration/underline"), 0);
+    assert_eq!(render("tests/text/text-decoration/underline"), 3822);
 }
 #[test]
 fn text_text_decoration_with_textLength_on_a_single_character() {
     assert_eq!(
         render("tests/text/text-decoration/with-textLength-on-a-single-character"),
-        0
+        1108
     );
 }
 #[test]
 fn text_text_rendering_geometricPrecision() {
-    assert_eq!(render("tests/text/text-rendering/geometricPrecision"), 0);
+    assert_eq!(render("tests/text/text-rendering/geometricPrecision"), 4078);
 }
 #[test]
 fn text_text_rendering_on_tspan() {
-    assert_eq!(render("tests/text/text-rendering/on-tspan"), 0);
+    assert_eq!(render("tests/text/text-rendering/on-tspan"), 2039);
 }
 #[test]
 fn text_text_rendering_optimizeLegibility() {
-    assert_eq!(render("tests/text/text-rendering/optimizeLegibility"), 0);
+    assert_eq!(render("tests/text/text-rendering/optimizeLegibility"), 4078);
 }
 #[test]
 fn text_text_rendering_optimizeSpeed() {
-    assert_eq!(render("tests/text/text-rendering/optimizeSpeed"), 0);
+    assert_eq!(render("tests/text/text-rendering/optimizeSpeed"), 3443);
 }
 #[test]
 fn text_text_rendering_with_underline() {
-    assert_eq!(render("tests/text/text-rendering/with-underline"), 0);
+    assert_eq!(render("tests/text/text-rendering/with-underline"), 1403);
 }
 #[test]
 fn text_textLength_150_on_parent() {
-    assert_eq!(render("tests/text/textLength/150-on-parent"), 0);
+    assert_eq!(render("tests/text/textLength/150-on-parent"), 2958);
 }
 #[test]
 fn text_textLength_150_on_tspan() {
-    assert_eq!(render("tests/text/textLength/150-on-tspan"), 0);
+    assert_eq!(render("tests/text/textLength/150-on-tspan"), 1660);
 }
 #[test]
 fn text_textLength_150() {
-    assert_eq!(render("tests/text/textLength/150"), 0);
+    assert_eq!(render("tests/text/textLength/150"), 1660);
 }
 #[test]
 fn text_textLength_40mm() {
-    assert_eq!(render("tests/text/textLength/40mm"), 0);
+    assert_eq!(render("tests/text/textLength/40mm"), 1679);
 }
 #[test]
 fn text_textLength_75percent() {
-    assert_eq!(render("tests/text/textLength/75percent"), 0);
+    assert_eq!(render("tests/text/textLength/75percent"), 1660);
 }
 #[test]
 fn text_textLength_arabic_with_lengthAdjust() {
@@ -7396,35 +7435,35 @@ fn text_textLength_arabic() {
 }
 #[test]
 fn text_textLength_inherit() {
-    assert_eq!(render("tests/text/textLength/inherit"), 0);
+    assert_eq!(render("tests/text/textLength/inherit"), 2958);
 }
 #[test]
 fn text_textLength_negative() {
-    assert_eq!(render("tests/text/textLength/negative"), 0);
+    assert_eq!(render("tests/text/textLength/negative"), 2958);
 }
 #[test]
 fn text_textLength_on_a_single_tspan() {
-    assert_eq!(render("tests/text/textLength/on-a-single-tspan"), 0);
+    assert_eq!(render("tests/text/textLength/on-a-single-tspan"), 696);
 }
 #[test]
 fn text_textLength_on_text_and_tspan() {
-    assert_eq!(render("tests/text/textLength/on-text-and-tspan"), 0);
+    assert_eq!(render("tests/text/textLength/on-text-and-tspan"), 3590);
 }
 #[test]
 fn text_textLength_zero() {
-    assert_eq!(render("tests/text/textLength/zero"), 0);
+    assert_eq!(render("tests/text/textLength/zero"), 1009);
 }
 #[test]
 fn text_textPath_closed_path() {
-    assert_eq!(render("tests/text/textPath/closed-path"), 0);
+    assert_eq!(render("tests/text/textPath/closed-path"), 6863);
 }
 #[test]
 fn text_textPath_complex() {
-    assert_eq!(render("tests/text/textPath/complex"), 0);
+    assert_eq!(render("tests/text/textPath/complex"), 1122);
 }
 #[test]
 fn text_textPath_dy_with_tiny_coordinates() {
-    assert_eq!(render("tests/text/textPath/dy-with-tiny-coordinates"), 0);
+    assert_eq!(render("tests/text/textPath/dy-with-tiny-coordinates"), 4698);
 }
 #[test]
 fn text_textPath_invalid_link() {
@@ -7434,36 +7473,36 @@ fn text_textPath_invalid_link() {
 fn text_textPath_invalid_textPath_in_the_middle() {
     assert_eq!(
         render("tests/text/textPath/invalid-textPath-in-the-middle"),
-        0
+        1218
     );
 }
 #[test]
 fn text_textPath_link_to_rect() {
-    assert_eq!(render("tests/text/textPath/link-to-rect"), 0);
+    assert_eq!(render("tests/text/textPath/link-to-rect"), 2267);
 }
 #[test]
 fn text_textPath_m_A_path() {
-    assert_eq!(render("tests/text/textPath/m-A-path"), 0);
+    assert_eq!(render("tests/text/textPath/m-A-path"), 3642);
 }
 #[test]
 fn text_textPath_m_L_Z_path() {
-    assert_eq!(render("tests/text/textPath/m-L-Z-path"), 0);
+    assert_eq!(render("tests/text/textPath/m-L-Z-path"), 4812);
 }
 #[test]
 fn text_textPath_method_eq_stretch() {
-    assert_eq!(render("tests/text/textPath/method=stretch"), 0);
+    assert_eq!(render("tests/text/textPath/method=stretch"), 2380);
 }
 #[test]
 fn text_textPath_mixed_children_1() {
-    assert_eq!(render("tests/text/textPath/mixed-children-1"), 0);
+    assert_eq!(render("tests/text/textPath/mixed-children-1"), 3697);
 }
 #[test]
 fn text_textPath_mixed_children_2() {
-    assert_eq!(render("tests/text/textPath/mixed-children-2"), 0);
+    assert_eq!(render("tests/text/textPath/mixed-children-2"), 3481);
 }
 #[test]
 fn text_textPath_nested() {
-    assert_eq!(render("tests/text/textPath/nested"), 0);
+    assert_eq!(render("tests/text/textPath/nested"), 2394);
 }
 #[test]
 fn text_textPath_no_link() {
@@ -7471,46 +7510,46 @@ fn text_textPath_no_link() {
 }
 #[test]
 fn text_textPath_path_with_ClosePath() {
-    assert_eq!(render("tests/text/textPath/path-with-ClosePath"), 0);
+    assert_eq!(render("tests/text/textPath/path-with-ClosePath"), 6778);
 }
 #[test]
 fn text_textPath_path_with_subpaths_and_startOffset() {
     assert_eq!(
         render("tests/text/textPath/path-with-subpaths-and-startOffset"),
-        0
+        918
     );
 }
 #[test]
 fn text_textPath_path_with_subpaths() {
-    assert_eq!(render("tests/text/textPath/path-with-subpaths"), 0);
+    assert_eq!(render("tests/text/textPath/path-with-subpaths"), 2316);
 }
 #[test]
 fn text_textPath_side_eq_right() {
-    assert_eq!(render("tests/text/textPath/side=right"), 0);
+    assert_eq!(render("tests/text/textPath/side=right"), 2380);
 }
 #[test]
 fn text_textPath_simple_case() {
-    assert_eq!(render("tests/text/textPath/simple-case"), 0);
+    assert_eq!(render("tests/text/textPath/simple-case"), 2380);
 }
 #[test]
 fn text_textPath_spacing_eq_auto() {
-    assert_eq!(render("tests/text/textPath/spacing=auto"), 0);
+    assert_eq!(render("tests/text/textPath/spacing=auto"), 2380);
 }
 #[test]
 fn text_textPath_startOffset_eq__100() {
-    assert_eq!(render("tests/text/textPath/startOffset=-100"), 0);
+    assert_eq!(render("tests/text/textPath/startOffset=-100"), 1094);
 }
 #[test]
 fn text_textPath_startOffset_eq_10percent() {
-    assert_eq!(render("tests/text/textPath/startOffset=10percent"), 0);
+    assert_eq!(render("tests/text/textPath/startOffset=10percent"), 2375);
 }
 #[test]
 fn text_textPath_startOffset_eq_30() {
-    assert_eq!(render("tests/text/textPath/startOffset=30"), 0);
+    assert_eq!(render("tests/text/textPath/startOffset=30"), 2460);
 }
 #[test]
 fn text_textPath_startOffset_eq_5mm() {
-    assert_eq!(render("tests/text/textPath/startOffset=5mm"), 0);
+    assert_eq!(render("tests/text/textPath/startOffset=5mm"), 2368);
 }
 #[test]
 fn text_textPath_startOffset_eq_9999() {
@@ -7520,53 +7559,53 @@ fn text_textPath_startOffset_eq_9999() {
 fn text_textPath_tspan_with_absolute_position() {
     assert_eq!(
         render("tests/text/textPath/tspan-with-absolute-position"),
-        0
+        1756
     );
 }
 #[test]
 fn text_textPath_tspan_with_relative_position() {
     assert_eq!(
         render("tests/text/textPath/tspan-with-relative-position"),
-        0
+        2410
     );
 }
 #[test]
 fn text_textPath_two_paths() {
-    assert_eq!(render("tests/text/textPath/two-paths"), 0);
+    assert_eq!(render("tests/text/textPath/two-paths"), 4788);
 }
 #[test]
 fn text_textPath_very_long_text() {
-    assert_eq!(render("tests/text/textPath/very-long-text"), 0);
+    assert_eq!(render("tests/text/textPath/very-long-text"), 2135);
 }
 #[test]
 fn text_textPath_with_baseline_shift_and_rotate() {
     assert_eq!(
         render("tests/text/textPath/with-baseline-shift-and-rotate"),
-        0
+        6869
     );
 }
 #[test]
 fn text_textPath_with_baseline_shift() {
-    assert_eq!(render("tests/text/textPath/with-baseline-shift"), 0);
+    assert_eq!(render("tests/text/textPath/with-baseline-shift"), 6801);
 }
 #[test]
 fn text_textPath_with_big_letter_spacing() {
-    assert_eq!(render("tests/text/textPath/with-big-letter-spacing"), 0);
+    assert_eq!(render("tests/text/textPath/with-big-letter-spacing"), 972);
 }
 #[test]
 fn text_textPath_with_coordinates_on_text() {
-    assert_eq!(render("tests/text/textPath/with-coordinates-on-text"), 0);
+    assert_eq!(render("tests/text/textPath/with-coordinates-on-text"), 2380);
 }
 #[test]
 fn text_textPath_with_coordinates_on_textPath() {
     assert_eq!(
         render("tests/text/textPath/with-coordinates-on-textPath"),
-        0
+        2380
     );
 }
 #[test]
 fn text_textPath_with_filter() {
-    assert_eq!(render("tests/text/textPath/with-filter"), 0);
+    assert_eq!(render("tests/text/textPath/with-filter"), 4788);
 }
 #[test]
 fn text_textPath_with_invalid_path_and_xlink_href() {
@@ -7577,7 +7616,7 @@ fn text_textPath_with_invalid_path_and_xlink_href() {
 }
 #[test]
 fn text_textPath_with_letter_spacing() {
-    assert_eq!(render("tests/text/textPath/with-letter-spacing"), 0);
+    assert_eq!(render("tests/text/textPath/with-letter-spacing"), 1484);
 }
 #[test]
 fn text_textPath_with_path_and_xlink_href() {
@@ -7589,29 +7628,29 @@ fn text_textPath_with_path() {
 }
 #[test]
 fn text_textPath_with_rotate() {
-    assert_eq!(render("tests/text/textPath/with-rotate"), 0);
+    assert_eq!(render("tests/text/textPath/with-rotate"), 2223);
 }
 #[test]
 fn text_textPath_with_text_anchor() {
-    assert_eq!(render("tests/text/textPath/with-text-anchor"), 0);
+    assert_eq!(render("tests/text/textPath/with-text-anchor"), 1096);
 }
 #[test]
 fn text_textPath_with_transform_on_a_referenced_path() {
     assert_eq!(
         render("tests/text/textPath/with-transform-on-a-referenced-path"),
-        0
+        2358
     );
 }
 #[test]
 fn text_textPath_with_transform_outside_a_referenced_path() {
     assert_eq!(
         render("tests/text/textPath/with-transform-outside-a-referenced-path"),
-        0
+        2380
     );
 }
 #[test]
 fn text_textPath_with_underline() {
-    assert_eq!(render("tests/text/textPath/with-underline"), 0);
+    assert_eq!(render("tests/text/textPath/with-underline"), 2734);
 }
 #[test]
 fn text_textPath_writing_mode_eq_tb() {
@@ -7619,7 +7658,7 @@ fn text_textPath_writing_mode_eq_tb() {
 }
 #[test]
 fn text_tref_link_to_a_complex_text() {
-    assert_eq!(render("tests/text/tref/link-to-a-complex-text"), 0);
+    assert_eq!(render("tests/text/tref/link-to-a-complex-text"), 1927);
 }
 #[test]
 fn text_tref_link_to_a_non_SVG_element() {
@@ -7627,18 +7666,18 @@ fn text_tref_link_to_a_non_SVG_element() {
 }
 #[test]
 fn text_tref_link_to_a_non_text_element() {
-    assert_eq!(render("tests/text/tref/link-to-a-non-text-element"), 0);
+    assert_eq!(render("tests/text/tref/link-to-a-non-text-element"), 4852);
 }
 #[test]
 fn text_tref_link_to_an_external_file_element() {
     assert_eq!(
         render("tests/text/tref/link-to-an-external-file-element"),
-        0
+        4852
     );
 }
 #[test]
 fn text_tref_link_to_text() {
-    assert_eq!(render("tests/text/tref/link-to-text"), 0);
+    assert_eq!(render("tests/text/tref/link-to-text"), 4852);
 }
 #[test]
 fn text_tref_nested() {
@@ -7646,23 +7685,23 @@ fn text_tref_nested() {
 }
 #[test]
 fn text_tref_position_attributes() {
-    assert_eq!(render("tests/text/tref/position-attributes"), 0);
+    assert_eq!(render("tests/text/tref/position-attributes"), 4852);
 }
 #[test]
 fn text_tref_style_attributes() {
-    assert_eq!(render("tests/text/tref/style-attributes"), 0);
+    assert_eq!(render("tests/text/tref/style-attributes"), 4852);
 }
 #[test]
 fn text_tref_with_a_title_child() {
-    assert_eq!(render("tests/text/tref/with-a-title-child"), 0);
+    assert_eq!(render("tests/text/tref/with-a-title-child"), 2841);
 }
 #[test]
 fn text_tref_with_text() {
-    assert_eq!(render("tests/text/tref/with-text"), 0);
+    assert_eq!(render("tests/text/tref/with-text"), 2841);
 }
 #[test]
 fn text_tref_xml_space() {
-    assert_eq!(render("tests/text/tref/xml-space"), 0);
+    assert_eq!(render("tests/text/tref/xml-space"), 1235);
 }
 #[test]
 fn text_tspan_bidi_reordering() {
@@ -7670,43 +7709,43 @@ fn text_tspan_bidi_reordering() {
 }
 #[test]
 fn text_tspan_mixed_font_size() {
-    assert_eq!(render("tests/text/tspan/mixed-font-size"), 0);
+    assert_eq!(render("tests/text/tspan/mixed-font-size"), 4498);
 }
 #[test]
 fn text_tspan_mixed_xml_space_1() {
-    assert_eq!(render("tests/text/tspan/mixed-xml-space-1"), 0);
+    assert_eq!(render("tests/text/tspan/mixed-xml-space-1"), 2976);
 }
 #[test]
 fn text_tspan_mixed_xml_space_2() {
-    assert_eq!(render("tests/text/tspan/mixed-xml-space-2"), 0);
+    assert_eq!(render("tests/text/tspan/mixed-xml-space-2"), 2963);
 }
 #[test]
 fn text_tspan_mixed_xml_space_3() {
-    assert_eq!(render("tests/text/tspan/mixed-xml-space-3"), 0);
+    assert_eq!(render("tests/text/tspan/mixed-xml-space-3"), 793);
 }
 #[test]
 fn text_tspan_mixed() {
-    assert_eq!(render("tests/text/tspan/mixed"), 0);
+    assert_eq!(render("tests/text/tspan/mixed"), 3224);
 }
 #[test]
 fn text_tspan_multiple_coordinates() {
-    assert_eq!(render("tests/text/tspan/multiple-coordinates"), 0);
+    assert_eq!(render("tests/text/tspan/multiple-coordinates"), 3977);
 }
 #[test]
 fn text_tspan_nested_rotate() {
-    assert_eq!(render("tests/text/tspan/nested-rotate"), 0);
+    assert_eq!(render("tests/text/tspan/nested-rotate"), 4404);
 }
 #[test]
 fn text_tspan_nested_whitespaces() {
-    assert_eq!(render("tests/text/tspan/nested-whitespaces"), 0);
+    assert_eq!(render("tests/text/tspan/nested-whitespaces"), 4807);
 }
 #[test]
 fn text_tspan_nested() {
-    assert_eq!(render("tests/text/tspan/nested"), 0);
+    assert_eq!(render("tests/text/tspan/nested"), 3431);
 }
 #[test]
 fn text_tspan_only_with_y() {
-    assert_eq!(render("tests/text/tspan/only-with-y"), 0);
+    assert_eq!(render("tests/text/tspan/only-with-y"), 4852);
 }
 #[test]
 fn text_tspan_outside_the_text() {
@@ -7714,85 +7753,85 @@ fn text_tspan_outside_the_text() {
 }
 #[test]
 fn text_tspan_pseudo_multi_line() {
-    assert_eq!(render("tests/text/tspan/pseudo-multi-line"), 0);
+    assert_eq!(render("tests/text/tspan/pseudo-multi-line"), 13962);
 }
 #[test]
 fn text_tspan_rotate_and_display_none() {
-    assert_eq!(render("tests/text/tspan/rotate-and-display-none"), 0);
+    assert_eq!(render("tests/text/tspan/rotate-and-display-none"), 1779);
 }
 #[test]
 fn text_tspan_rotate_on_child() {
-    assert_eq!(render("tests/text/tspan/rotate-on-child"), 0);
+    assert_eq!(render("tests/text/tspan/rotate-on-child"), 3428);
 }
 #[test]
 fn text_tspan_sequential() {
-    assert_eq!(render("tests/text/tspan/sequential"), 0);
+    assert_eq!(render("tests/text/tspan/sequential"), 3224);
 }
 #[test]
 fn text_tspan_style_override() {
-    assert_eq!(render("tests/text/tspan/style-override"), 0);
+    assert_eq!(render("tests/text/tspan/style-override"), 4853);
 }
 #[test]
 fn text_tspan_text_shaping_across_multiple_tspan_1() {
     assert_eq!(
         render("tests/text/tspan/text-shaping-across-multiple-tspan-1"),
-        0
+        2958
     );
 }
 #[test]
 fn text_tspan_text_shaping_across_multiple_tspan_2() {
     assert_eq!(
         render("tests/text/tspan/text-shaping-across-multiple-tspan-2"),
-        0
+        3071
     );
 }
 #[test]
 fn text_tspan_transform() {
-    assert_eq!(render("tests/text/tspan/transform"), 0);
+    assert_eq!(render("tests/text/tspan/transform"), 4852);
 }
 #[test]
 fn text_tspan_tspan_bbox_1() {
-    assert_eq!(render("tests/text/tspan/tspan-bbox-1"), 0);
+    assert_eq!(render("tests/text/tspan/tspan-bbox-1"), 2287);
 }
 #[test]
 fn text_tspan_tspan_bbox_2() {
-    assert_eq!(render("tests/text/tspan/tspan-bbox-2"), 0);
+    assert_eq!(render("tests/text/tspan/tspan-bbox-2"), 1811);
 }
 #[test]
 fn text_tspan_with_clip_path() {
-    assert_eq!(render("tests/text/tspan/with-clip-path"), 0);
+    assert_eq!(render("tests/text/tspan/with-clip-path"), 4852);
 }
 #[test]
 fn text_tspan_with_dy() {
-    assert_eq!(render("tests/text/tspan/with-dy"), 0);
+    assert_eq!(render("tests/text/tspan/with-dy"), 3239);
 }
 #[test]
 fn text_tspan_with_filter() {
-    assert_eq!(render("tests/text/tspan/with-filter"), 0);
+    assert_eq!(render("tests/text/tspan/with-filter"), 4852);
 }
 #[test]
 fn text_tspan_with_mask() {
-    assert_eq!(render("tests/text/tspan/with-mask"), 0);
+    assert_eq!(render("tests/text/tspan/with-mask"), 4852);
 }
 #[test]
 fn text_tspan_with_opacity() {
-    assert_eq!(render("tests/text/tspan/with-opacity"), 0);
+    assert_eq!(render("tests/text/tspan/with-opacity"), 1689);
 }
 #[test]
 fn text_tspan_with_x_and_y() {
-    assert_eq!(render("tests/text/tspan/with-x-and-y"), 0);
+    assert_eq!(render("tests/text/tspan/with-x-and-y"), 4852);
 }
 #[test]
 fn text_tspan_without_attributes() {
-    assert_eq!(render("tests/text/tspan/without-attributes"), 0);
+    assert_eq!(render("tests/text/tspan/without-attributes"), 4852);
 }
 #[test]
 fn text_tspan_xml_space_1() {
-    assert_eq!(render("tests/text/tspan/xml-space-1"), 0);
+    assert_eq!(render("tests/text/tspan/xml-space-1"), 3216);
 }
 #[test]
 fn text_tspan_xml_space_2() {
-    assert_eq!(render("tests/text/tspan/xml-space-2"), 0);
+    assert_eq!(render("tests/text/tspan/xml-space-2"), 3216);
 }
 #[test]
 fn text_unicode_bidi_bidi_override() {
@@ -7800,23 +7839,23 @@ fn text_unicode_bidi_bidi_override() {
 }
 #[test]
 fn text_word_spacing__5() {
-    assert_eq!(render("tests/text/word-spacing/-5"), 0);
+    assert_eq!(render("tests/text/word-spacing/-5"), 1454);
 }
 #[test]
 fn text_word_spacing_0() {
-    assert_eq!(render("tests/text/word-spacing/0"), 0);
+    assert_eq!(render("tests/text/word-spacing/0"), 1457);
 }
 #[test]
 fn text_word_spacing_10() {
-    assert_eq!(render("tests/text/word-spacing/10"), 0);
+    assert_eq!(render("tests/text/word-spacing/10"), 1457);
 }
 #[test]
 fn text_word_spacing_2mm() {
-    assert_eq!(render("tests/text/word-spacing/2mm"), 0);
+    assert_eq!(render("tests/text/word-spacing/2mm"), 1458);
 }
 #[test]
 fn text_word_spacing_5percent() {
-    assert_eq!(render("tests/text/word-spacing/5percent"), 0);
+    assert_eq!(render("tests/text/word-spacing/5percent"), 1457);
 }
 #[test]
 fn text_word_spacing_large_negative() {
@@ -7824,7 +7863,7 @@ fn text_word_spacing_large_negative() {
 }
 #[test]
 fn text_word_spacing_normal() {
-    assert_eq!(render("tests/text/word-spacing/normal"), 0);
+    assert_eq!(render("tests/text/word-spacing/normal"), 1457);
 }
 #[test]
 fn text_writing_mode_arabic_with_rl() {
@@ -7832,15 +7871,15 @@ fn text_writing_mode_arabic_with_rl() {
 }
 #[test]
 fn text_writing_mode_horizontal_tb() {
-    assert_eq!(render("tests/text/writing-mode/horizontal-tb"), 0);
+    assert_eq!(render("tests/text/writing-mode/horizontal-tb"), 4807);
 }
 #[test]
 fn text_writing_mode_inheritance() {
-    assert_eq!(render("tests/text/writing-mode/inheritance"), 0);
+    assert_eq!(render("tests/text/writing-mode/inheritance"), 4873);
 }
 #[test]
 fn text_writing_mode_invalid_value() {
-    assert_eq!(render("tests/text/writing-mode/invalid-value"), 0);
+    assert_eq!(render("tests/text/writing-mode/invalid-value"), 4807);
 }
 #[test]
 fn text_writing_mode_japanese_with_tb() {
@@ -7848,34 +7887,37 @@ fn text_writing_mode_japanese_with_tb() {
 }
 #[test]
 fn text_writing_mode_lr_tb() {
-    assert_eq!(render("tests/text/writing-mode/lr-tb"), 0);
+    assert_eq!(render("tests/text/writing-mode/lr-tb"), 4807);
 }
 #[test]
 fn text_writing_mode_lr() {
-    assert_eq!(render("tests/text/writing-mode/lr"), 0);
+    assert_eq!(render("tests/text/writing-mode/lr"), 4807);
 }
 #[test]
 fn text_writing_mode_mixed_languages_with_tb_and_underline() {
     assert_eq!(
         render("tests/text/writing-mode/mixed-languages-with-tb-and-underline"),
-        0
+        2256
     );
 }
 #[test]
 fn text_writing_mode_mixed_languages_with_tb() {
-    assert_eq!(render("tests/text/writing-mode/mixed-languages-with-tb"), 0);
+    assert_eq!(
+        render("tests/text/writing-mode/mixed-languages-with-tb"),
+        2198
+    );
 }
 #[test]
 fn text_writing_mode_on_tspan() {
-    assert_eq!(render("tests/text/writing-mode/on-tspan"), 0);
+    assert_eq!(render("tests/text/writing-mode/on-tspan"), 4807);
 }
 #[test]
 fn text_writing_mode_rl_tb() {
-    assert_eq!(render("tests/text/writing-mode/rl-tb"), 0);
+    assert_eq!(render("tests/text/writing-mode/rl-tb"), 4807);
 }
 #[test]
 fn text_writing_mode_rl() {
-    assert_eq!(render("tests/text/writing-mode/rl"), 0);
+    assert_eq!(render("tests/text/writing-mode/rl"), 4807);
 }
 #[test]
 fn text_writing_mode_tb_and_punctuation() {
@@ -7883,50 +7925,50 @@ fn text_writing_mode_tb_and_punctuation() {
 }
 #[test]
 fn text_writing_mode_tb_rl() {
-    assert_eq!(render("tests/text/writing-mode/tb-rl"), 0);
+    assert_eq!(render("tests/text/writing-mode/tb-rl"), 4873);
 }
 #[test]
 fn text_writing_mode_tb_with_alignment() {
-    assert_eq!(render("tests/text/writing-mode/tb-with-alignment"), 0);
+    assert_eq!(render("tests/text/writing-mode/tb-with-alignment"), 3353);
 }
 #[test]
 fn text_writing_mode_tb_with_dx_on_second_tspan() {
     assert_eq!(
         render("tests/text/writing-mode/tb-with-dx-on-second-tspan"),
-        0
+        7600
     );
 }
 #[test]
 fn text_writing_mode_tb_with_dx_on_tspan() {
-    assert_eq!(render("tests/text/writing-mode/tb-with-dx-on-tspan"), 0);
+    assert_eq!(render("tests/text/writing-mode/tb-with-dx-on-tspan"), 2996);
 }
 #[test]
 fn text_writing_mode_tb_with_dy_on_second_tspan() {
     assert_eq!(
         render("tests/text/writing-mode/tb-with-dy-on-second-tspan"),
-        0
+        4733
     );
 }
 #[test]
 fn text_writing_mode_tb_with_rotate_and_underline() {
     assert_eq!(
         render("tests/text/writing-mode/tb-with-rotate-and-underline"),
-        0
+        3649
     );
 }
 #[test]
 fn text_writing_mode_tb_with_rotate() {
-    assert_eq!(render("tests/text/writing-mode/tb-with-rotate"), 0);
+    assert_eq!(render("tests/text/writing-mode/tb-with-rotate"), 2175);
 }
 #[test]
 fn text_writing_mode_tb() {
-    assert_eq!(render("tests/text/writing-mode/tb"), 0);
+    assert_eq!(render("tests/text/writing-mode/tb"), 4873);
 }
 #[test]
 fn text_writing_mode_vertical_lr() {
-    assert_eq!(render("tests/text/writing-mode/vertical-lr"), 0);
+    assert_eq!(render("tests/text/writing-mode/vertical-lr"), 4873);
 }
 #[test]
 fn text_writing_mode_vertical_rl() {
-    assert_eq!(render("tests/text/writing-mode/vertical-rl"), 0);
+    assert_eq!(render("tests/text/writing-mode/vertical-rl"), 4873);
 }
