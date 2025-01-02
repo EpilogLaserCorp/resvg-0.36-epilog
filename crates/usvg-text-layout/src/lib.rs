@@ -1004,7 +1004,7 @@ impl<'a> GlyphClusters<'a> {
     }
 }
 
-impl<'a> Iterator for GlyphClusters<'a> {
+impl Iterator for GlyphClusters<'_> {
     type Item = (std::ops::Range<usize>, ByteIndex);
 
     fn next(&mut self) -> Option<Self::Item> {
