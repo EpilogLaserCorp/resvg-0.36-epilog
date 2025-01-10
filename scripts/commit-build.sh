@@ -8,6 +8,6 @@ echo "Building release..."
 cargo build --release
 
 echo "Building wasi..."
-cargo wasi build --release
+cargo build --release --target wasm32-wasip2
 
 exit 0
