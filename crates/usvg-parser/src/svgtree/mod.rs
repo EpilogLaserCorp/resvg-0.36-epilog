@@ -1008,6 +1008,10 @@ impl<'a, 'input: 'a> FromValue<'a, 'input> for usvg_tree::ImageRendering {
         match value {
             "auto" | "optimizeQuality" => Some(usvg_tree::ImageRendering::OptimizeQuality),
             "optimizeSpeed" => Some(usvg_tree::ImageRendering::OptimizeSpeed),
+            "smooth" => Some(usvg_tree::ImageRendering::Smooth),
+            "high-quality" => Some(usvg_tree::ImageRendering::HighQuality),
+            "crisp-edges" => Some(usvg_tree::ImageRendering::CrispEdges),
+            "pixelated" => Some(usvg_tree::ImageRendering::Pixelated),
             _ => None,
         }
     }
