@@ -237,13 +237,29 @@ fn conv_filters(tree: &Tree, opt: &XmlOptions, xml: &mut XmlWriter) {
                     xml.start_svg_element(EId::FeImage);
                     xml.write_filter_primitive_attrs(fe);
                     xml.write_aspect(img.aspect);
-                    xml.write_svg_attribute(
-                        AId::ImageRendering,
-                        match img.rendering_mode {
-                            ImageRendering::OptimizeQuality => "optimizeQuality",
-                            ImageRendering::OptimizeSpeed => "optimizeSpeed",
-                        },
-                    );
+                    match img.rendering_mode {
+                        ImageRendering::OptimizeQuality => {
+                            xml.write_svg_attribute(AId::ImageRendering, "optimizeQuality");
+                        }
+                        ImageRendering::OptimizeSpeed => {
+                            xml.write_svg_attribute(AId::ImageRendering, "optimizeSpeed");
+                        }
+                        ImageRendering::Smooth => {
+                            xml.write_attribute(AId::Style.to_str(), "image-rendering:smooth");
+                        }
+                        ImageRendering::HighQuality => {
+                            xml.write_attribute(
+                                AId::Style.to_str(),
+                                "image-rendering:high-quality",
+                            );
+                        }
+                        ImageRendering::CrispEdges => {
+                            xml.write_attribute(AId::Style.to_str(), "image-rendering:crisp-edges");
+                        }
+                        ImageRendering::Pixelated => {
+                            xml.write_attribute(AId::Style.to_str(), "image-rendering:pixelated");
+                        }
+                    }
                     match img.data {
                         filter::ImageKind::Image(ref kind) => {
                             xml.write_image_data(kind);
@@ -603,6 +619,18 @@ fn conv_element(node: &Node, is_clip_path: bool, opt: &XmlOptions, xml: &mut Xml
                 ImageRendering::OptimizeQuality => {}
                 ImageRendering::OptimizeSpeed => {
                     xml.write_svg_attribute(AId::ImageRendering, "optimizeSpeed");
+                }
+                ImageRendering::Smooth => {
+                    xml.write_attribute(AId::Style.to_str(), "image-rendering:smooth");
+                }
+                ImageRendering::HighQuality => {
+                    xml.write_attribute(AId::Style.to_str(), "image-rendering:high-quality");
+                }
+                ImageRendering::CrispEdges => {
+                    xml.write_attribute(AId::Style.to_str(), "image-rendering:crisp-edges");
+                }
+                ImageRendering::Pixelated => {
+                    xml.write_attribute(AId::Style.to_str(), "image-rendering:pixelated");
                 }
             }
 
