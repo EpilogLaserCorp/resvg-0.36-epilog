@@ -976,10 +976,10 @@ impl XmlWriterExt for XmlWriter {
             }
         };
 
-        self.write_attribute_raw("xlink:href", |buf| {
+        self.write_attribute_raw("href", |buf| {
             buf.extend_from_slice(b"data:image/");
             buf.extend_from_slice(mime.as_bytes());
-            buf.extend_from_slice(b";base64, ");
+            buf.extend_from_slice(b";base64,");
 
             let mut enc =
                 base64::write::EncoderWriter::new(buf, &base64::engine::general_purpose::STANDARD);

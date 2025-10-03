@@ -1245,7 +1245,7 @@ pub trait NodeExt {
     ///
     /// If a current node doesn't support ID - an empty string
     /// will be returned.
-    fn id(&self) -> std::cell::Ref<str>;
+    fn id(&self) -> std::cell::Ref<'_, str>;
 
     /// Returns node's transform.
     ///
@@ -1297,7 +1297,7 @@ pub trait NodeExt {
 
 impl NodeExt for Node {
     #[inline]
-    fn id(&self) -> std::cell::Ref<str> {
+    fn id(&self) -> std::cell::Ref<'_, str> {
         std::cell::Ref::map(self.borrow(), |v| v.id())
     }
 
