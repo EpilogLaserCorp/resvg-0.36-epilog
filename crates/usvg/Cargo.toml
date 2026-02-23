@@ -18,7 +18,7 @@ name = "usvg"
 required-features = ["text", "system-fonts", "memmap-fonts"]
 
 [dependencies]
-base64 = "0.21" # for embedded images
+base64 = "0.22"                                               # for embedded images
 log = "0.4"
 pico-args = { version = "0.5", features = ["eq-separator"] }
 usvg-parser = { path = "../usvg-parser", version = "0.36.0" }
