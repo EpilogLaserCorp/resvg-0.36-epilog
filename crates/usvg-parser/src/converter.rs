@@ -407,16 +407,11 @@ pub(crate) fn convert_clip_path_elements(
     }
 }
 
-#[derive(Clone, Copy, PartialEq, Debug)]
+#[derive(Clone, Copy, Default, PartialEq, Debug)]
 enum Isolation {
+    #[default]
     Auto,
     Isolate,
-}
-
-impl Default for Isolation {
-    fn default() -> Self {
-        Self::Auto
-    }
 }
 
 impl<'a, 'input: 'a> FromValue<'a, 'input> for Isolation {

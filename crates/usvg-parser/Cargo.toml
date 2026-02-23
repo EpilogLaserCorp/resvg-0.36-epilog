@@ -18,11 +18,11 @@ data-url = "0.3" # for href parsing
 flate2 = { version = "1.0", default-features = false, features = [
     "rust_backend",
 ] } # SVGZ decoding
-imagesize = "0.12" # raster images size detection
-kurbo = "0.9" # Bezier curves utils
+imagesize = "0.14" # raster images size detection
+kurbo = "0.13" # Bezier curves utils
 log = "0.4"
-roxmltree = "0.18"
+roxmltree = "0.21"
 simplecss = "0.2"
-siphasher = "0.3" # perfect hash implementation
+siphasher = "1.0" # perfect hash implementation
 svgtypes = "0.15"
 usvg-tree = { path = "../usvg-tree", version = "0.36.0" }

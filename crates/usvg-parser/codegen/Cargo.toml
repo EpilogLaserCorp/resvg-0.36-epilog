@@ -12,6 +12,6 @@ name = "codegen"
 path = "main.rs"
 
 [dependencies]
-phf = "0.7.22"
-phf_codegen = "0.7.22"
-itertools = "0.7"
+phf = "0.13"
+phf_codegen = "0.13"
+itertools = "0.14"
