@@ -663,21 +663,17 @@ fn convert_path(
         [first, PaintOrderKind::Markers, last] => {
             let append_single_paint_path = |paint_order_kind: PaintOrderKind| match paint_order_kind
             {
-                PaintOrderKind::Fill => {
-                    if path.fill.is_some() {
-                        let mut fill_path = path.clone();
-                        fill_path.stroke = None;
-                        fill_path.id = String::new();
-                        parent.append(Node::new(NodeKind::Path(fill_path)));
-                    }
+                PaintOrderKind::Fill if path.fill.is_some() => {
+                    let mut fill_path = path.clone();
+                    fill_path.stroke = None;
+                    fill_path.id = String::new();
+                    parent.append(Node::new(NodeKind::Path(fill_path)));
                 }
-                PaintOrderKind::Stroke => {
-                    if path.stroke.is_some() {
-                        let mut stroke_path = path.clone();
-                        stroke_path.fill = None;
-                        stroke_path.id = String::new();
-                        parent.append(Node::new(NodeKind::Path(stroke_path)));
-                    }
+                PaintOrderKind::Stroke if path.stroke.is_some() => {
+                    let mut stroke_path = path.clone();
+                    stroke_path.fill = None;
+                    stroke_path.id = String::new();
+                    parent.append(Node::new(NodeKind::Path(stroke_path)));
                 }
                 _ => {}
             };
