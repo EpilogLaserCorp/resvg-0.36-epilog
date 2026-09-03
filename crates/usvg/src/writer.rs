@@ -2,7 +2,7 @@
 // License, v. 2.0. If a copy of the MPL was not distributed with this
 // file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
-use std::fmt::Display;
+use std::fmt::{self, Display};
 use std::io::Write;
 use std::rc::Rc;
 
@@ -265,11 +265,7 @@ fn conv_filters(tree: &Tree, opt: &XmlOptions, xml: &mut XmlWriter) {
                             xml.write_image_data(kind);
                         }
                         filter::ImageKind::Use(ref node) => {
-                            let prefix = opt.id_prefix.as_deref().unwrap_or_default();
-                            xml.write_attribute_fmt(
-                                "xlink:href",
-                                format_args!("#{}{}", prefix, node.id()),
-                            );
+                            xml.write_href("xlink:href", &node.id(), opt);
                         }
                     }
 
@@ -736,6 +732,7 @@ trait XmlWriterExt {
     fn write_visibility(&mut self, value: Visibility);
     fn write_func_iri(&mut self, aid: AId, id: &str, opt: &XmlOptions);
     fn write_func_href(&mut self, aid: AId, id: &str, opt: &XmlOptions);
+    fn write_href(&mut self, name: &str, id: &str, opt: &XmlOptions);
     fn write_rect_attrs(&mut self, r: NonZeroRect);
     fn write_numbers(&mut self, aid: AId, list: &[f32]);
     fn write_image_data(&mut self, kind: &ImageKind);
@@ -752,17 +749,17 @@ impl XmlWriterExt for XmlWriter {
 
     #[inline(never)]
     fn write_svg_attribute<V: Display + ?Sized>(&mut self, id: AId, value: &V) {
-        self.write_attribute(id.to_str(), value)
+        self.write_attribute_raw(id.to_str(), |buf| write_escaped_attribute(buf, value))
     }
 
     #[inline(never)]
     fn write_id_attribute(&mut self, value: &str, opt: &XmlOptions) {
         debug_assert!(!value.is_empty());
-        if let Some(ref prefix) = opt.id_prefix {
-            self.write_attribute_fmt("id", format_args!("{}{}", prefix, value));
-        } else {
-            self.write_attribute("id", value);
-        }
+        let prefix = opt.id_prefix.as_deref().unwrap_or_default();
+        self.write_attribute_raw("id", |buf| {
+            write_escaped_attribute(buf, prefix);
+            write_escaped_attribute(buf, value);
+        })
     }
 
     #[inline(never)]
@@ -868,12 +865,25 @@ impl XmlWriterExt for XmlWriter {
 
     fn write_func_iri(&mut self, aid: AId, id: &str, opt: &XmlOptions) {
         let prefix = opt.id_prefix.as_deref().unwrap_or_default();
-        self.write_attribute_fmt(aid.to_str(), format_args!("url(#{}{})", prefix, id));
+        self.write_attribute_raw(aid.to_str(), |buf| {
+            buf.extend_from_slice(b"url(#");
+            write_escaped_attribute(buf, prefix);
+            write_escaped_attribute(buf, id);
+            buf.push(b')');
+        });
     }
 
     fn write_func_href(&mut self, aid: AId, id: &str, opt: &XmlOptions) {
+        self.write_href(aid.to_str(), id, opt);
+    }
+
+    fn write_href(&mut self, name: &str, id: &str, opt: &XmlOptions) {
         let prefix = opt.id_prefix.as_deref().unwrap_or_default();
-        self.write_attribute_fmt(aid.to_str(), format_args!("#{}{}", prefix, id));
+        self.write_attribute_raw(name, |buf| {
+            buf.push(b'#');
+            write_escaped_attribute(buf, prefix);
+            write_escaped_attribute(buf, id);
+        });
     }
 
     fn write_rect_attrs(&mut self, r: NonZeroRect) {
@@ -896,8 +906,8 @@ impl XmlWriterExt for XmlWriter {
     }
 
     fn write_filter_input(&mut self, id: AId, input: &filter::Input) {
-        self.write_attribute(
-            id.to_str(),
+        self.write_svg_attribute(
+            id,
             match input {
                 filter::Input::SourceGraphic => "SourceGraphic",
                 filter::Input::SourceAlpha => "SourceAlpha",
@@ -987,6 +997,66 @@ impl XmlWriterExt for XmlWriter {
             enc.finish().unwrap();
         });
     }
+}
+
+/// Returns the escaped form of `c`, or `None` when `c` can be written literally into an attribute
+/// value or a text node.
+///
+/// `xmlwriter` escapes only the quote it delimits attribute values with, and `<` in text nodes, so
+/// everything else XML reserves — plus the whitespace that attribute-value normalization would
+/// rewrite — has to be escaped here to keep the output parsable and unchanged when reparsed.
+fn escaped_char(c: char) -> Option<&'static str> {
+    match c {
+        '&' => Some("&amp;"),
+        '<' => Some("&lt;"),
+        '>' => Some("&gt;"),
+        '"' => Some("&quot;"),
+        '\'' => Some("&apos;"),
+        '\t' => Some("&#9;"),
+        '\n' => Some("&#10;"),
+        '\r' => Some("&#13;"),
+        _ => None,
+    }
+}
+
+/// Appends `s` to `buf` with every reserved character escaped, copying the runs between them in
+/// bulk.
+fn push_escaped(buf: &mut Vec<u8>, s: &str) {
+    let bytes = s.as_bytes();
+    let mut literal_start = 0;
+    for (i, c) in s.char_indices() {
+        if let Some(escaped) = escaped_char(c) {
+            buf.extend_from_slice(&bytes[literal_start..i]);
+            buf.extend_from_slice(escaped.as_bytes());
+            literal_start = i + c.len_utf8();
+        }
+    }
+
+    buf.extend_from_slice(&bytes[literal_start..]);
+}
+
+/// Escapes reserved characters while a value is being formatted, so escaping stays linear instead
+/// of rewriting the buffer afterwards.
+struct EscapingWriter<'a>(&'a mut Vec<u8>);
+
+impl fmt::Write for EscapingWriter<'_> {
+    fn write_str(&mut self, s: &str) -> fmt::Result {
+        push_escaped(self.0, s);
+        Ok(())
+    }
+}
+
+/// Appends `value` to an attribute value buffer with every reserved character escaped.
+fn write_escaped_attribute<V: Display + ?Sized>(buf: &mut Vec<u8>, value: &V) {
+    fmt::Write::write_fmt(&mut EscapingWriter(buf), format_args!("{}", value)).unwrap();
+}
+
+/// Returns `text` with every reserved character escaped.
+fn escape_text(text: &str) -> String {
+    let mut buf = Vec::with_capacity(text.len());
+    push_escaped(&mut buf, text);
+    // `push_escaped` only ever appends whole UTF-8 characters and ASCII escapes.
+    String::from_utf8(buf).unwrap()
 }
 
 fn has_xlink(tree: &Tree) -> bool {
@@ -1224,7 +1294,7 @@ fn write_tspan(
     }
 
     // Write contents.
-    xml.write_text(text);
+    xml.write_text(&escape_text(text));
 
     xml.end_element(); // End tspan element.
 }
